@@ -2,3 +2,64 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.banner {
+ // background-image: url('background.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+ color: white;
+ position: relative;
+}
+
+.banner-form{
+  background-color: rgba(0,0,0,0.6);
+  bottom: 0;
+  left: 0;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.banner-content{
+  font-size: 14px;
+  line-height: 1.43;
+  padding-top: 100px;
+}
+
+.banner-text{
+  padding-bottom: 20px;
+}
+
+.btn-transparent{
+  color: white;
+  background: white;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+  background-color:rgba(255, 255, 255, 0.4);
+  margin-top: 30px;
+}
+
+.btn-transparent:hover {
+  text-decoration: none;
+}
+
+video#bgvid {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    height: auto;
+    width: 100%;
+    bottom: 0px;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}

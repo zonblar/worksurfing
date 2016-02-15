@@ -12,10 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
     user.create(user_params)
 
-    if @dose.save
+    if @user.save
       redirect_to user_path(@user)
     else
-      render "users/show"
+      render :new
     end
 
   end

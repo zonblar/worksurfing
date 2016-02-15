@@ -14,8 +14,21 @@
 @import "pages/index";
 @import "vendor/index";
 
+
 .text-jumbo{
   text-transform: uppercase;
   font-size: 40px;
   font-weight: 700;
 }
+
+.body-wrapper {
+  position: relative;
+}
+
+.footer-wrapper{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+

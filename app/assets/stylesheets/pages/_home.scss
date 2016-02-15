@@ -4,7 +4,6 @@
  * ------------------------------------- */
 
 .banner {
- // background-image: url('background.jpg');
  background-repeat: no-repeat;
  background-size: cover;
  height: 100vh;
@@ -15,11 +14,11 @@
 .banner-form{
   background-color: rgba(0,0,0,0.6);
   bottom: 0;
+  right: 0;
   left: 0;
   padding-bottom: 30px;
   padding-top: 30px;
   position: absolute;
-  right: 0;
 }
 
 .banner-content{
@@ -63,4 +62,26 @@ video#bgvid {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
+}
+
+.explore-content {
+  background-image: url('background_place.jpg');
+  background-repeat: no-repeat;
+  color: white;
+  height: 550px;
+}
+
+.mod-explore {
+  padding: 30px;
+  background-color: #ECF0F1;
+}
+
+.testimonial-examples {
+  background-color: white;
+  border: 1px solid white;
+}
+
+.mod-meet {
+  padding: 30px;
+  background-color: #A3E0F6;
 }

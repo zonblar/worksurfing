@@ -7,7 +7,7 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :address %>
-
+  <%= f.input :city, :id => "autocomplete" %>
  <span> <%= f.input :price_per_day %>
   <%= f.input :price_per_week %></span>
   <%= f.input :type_of_space, :collection => @type_of_space %>
@@ -22,3 +22,9 @@
 <% end %>
 
 </div>
+
+
+
+
+
+

@@ -5,12 +5,19 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = user.new
+    @user = User.new
   end
 
   def create
+    @user = User.new
     user.create(user_params)
-    redirect_to users_path
+
+    if @dose.save
+      redirect_to user_path(@user)
+    else
+      render "users/show"
+    end
+
   end
 
   def edit

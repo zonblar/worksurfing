@@ -1,27 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render 'shared/sub_navbar' %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+<div class="wrapper" style="background: #F5F5F5">
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+  <div class="container user-container">
+    <row>
+      <div class="col-md-3 space-sm-4">
+            <div class="sidenav">
+        <ul class="sidenav-list">
+          <li>
+            <a href="" aria-selected="true" class="sidenav-item">Modifier le profil</a>
+          </li>
+          <li>
+            <a href="" aria-selected="false" class="sidenav-item">Photos, symbole et vidéo</a>
+          </li>
+          <li>
+            <a href="" aria-selected="false" class="sidenav-item">Commentaires</a>
+          </li>
+          <li>
+            <a href="" aria-selected="false" class="sidenav-item">Recommandations</a>
+          </li>
+          </ul>
+          </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+            <a href="" class="btn btn-default">Voir mon profil</a>
+          </div>
+
+
+      <div class="col-sm-8" style="background: white; border: 1px solid #CACCCD;">
+
+        <h2>Modifier le profil</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email, required: true, autofocus: true %>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+
+            <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+            <%= f.input :password_confirmation, required: false %>
+            <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Update" %>
+          </div>
+        <% end %>
+
+        <h3>Cancel my account</h3>
+
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+        <%= link_to "Back", :back %>
+
+      </div>
+    </row>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

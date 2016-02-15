@@ -1,4 +1,35 @@
-<!-- banner code -->
+<!-- ######## NAVBAR ########### -->
+<div class="navbar-wagon">
+  <div class="navbar-wagon-container container-fluid ">
+
+    <div>
+      <%= image_tag 'blason_paris', class: "navbar-wagon-logo avatar-large", id:"logo" %>
+    </div>
+
+    <div class="navbar-wagon-pusher"></div>
+
+
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Sécurité', '', class: "btn-transparent" %>
+    </div>
+
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Devenez Workmate', '', class: "btn btn-success" %>
+    </div>
+
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Inscription', '', class: "btn btn-primary" %>
+    </div>
+
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'Connexion', '', class: "btn btn-login" %>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ######## BANNER ########### -->
 <div class="banner">
   <video autoplay loop poster="polina.jpg" id="bgvid">
     <source src="https://a0.muscache.com/airbnb/static/Croatia-P1-1.mp4" type="video/mp4">
@@ -9,12 +40,12 @@
       <h1 class="text-jumbo">Travaillez comme à la maison, en mieux</h1>
       <h4>Trouvez un espace de travail, échangez avec des gens cools, près de chez vous</h4>
     </div>
+      <%= link_to "Mode d'emploi",'', class: "btn-transparent" %>
   </div>
-      <%= link_to "Mode d'emploi",'', class: "btn-transparent text-center" %>
     <div class="banner-form text-center">
       <form class="navbar form-inline">
-        <input type="text" placeholder="check-in" class="form-control input-lg">
-        <input type="text" placeholder="check-out" class="form-control input-lg">
+        <input type="text" placeholder="code-postal" class="form-control input-lg">
+        <input type="text" placeholder="date" class="form-control input-lg">
         <select class="form-control input-lg">
           <option value="1">1 personne</option>
           <option value="2">2 personnes</option>

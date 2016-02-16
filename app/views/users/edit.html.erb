@@ -36,12 +36,11 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :gender, collection: User::GENDERS, input_html: {prompt: "Selectionnez un sexe"}, label: "Sexe"%>
 
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom de famille" %>
             <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :gender, label: "Sexe" %>
+            <%= f.input :gender, collection: User::GENDERS, input_html: {prompt: "Selectionnez un sexe"}, label: "Sexe"%>
 
             <%= f.input :description %>
             <%= f.input :job, label: "Profession" %>

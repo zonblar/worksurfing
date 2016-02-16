@@ -1,0 +1,59 @@
+<%= render 'shared/sub_navbar' %>
+
+
+<div class="wrapper" style="background: #F5F5F5">
+
+  <div class="container user-container">
+    <row>
+      <div class="col-md-3 space-sm-4">
+            <div class="sidenav">
+        <ul class="sidenav-list">
+          <li>
+            <strong>  <%= link_to("Modifier mon profil", "user_path(@user)" , { class: "sidenav-item" }) %> </strong>
+          </li>
+          <li>
+            <%= link_to("Changer mon mot de passe", "user_path(@user)" , { class: "sidenav-item" }) %>
+          </li>
+          <li>
+            <%= link_to("Commentaire", "user_path(@user)" , { class: "sidenav-item" }) %>
+          </li>
+          <li>
+            <%= link_to("Recommandations", "user_path(@user)" , { class: "sidenav-item" }) %>
+          </li>
+          </ul>
+          </div>
+
+
+            <a href="" class="btn btn-default" style="margin-left: 50px">Voir mon profil</a>
+          </div>
+
+
+      <div class="col-sm-8 form-container" style="background: white; border: 1px solid #CACCCD;">
+
+        <h2>Modifier mon profil</h2>
+
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+
+            <%= f.input :first_name, label: "Prénom" %>
+            <%= f.input :last_name, label: "Nom de famille" %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :gender, collection: User::GENDERS, input_html: {prompt: "Selectionnez un sexe"}, label: "Sexe"%>
+
+            <%= f.input :description %>
+            <%= f.input :job, label: "Profession" %>
+            <%= f.input :portfolio %>
+
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Enregistrer" %>
+          </div>
+        <% end %>
+
+      </div>
+    </row>
+  </div>
+</div>

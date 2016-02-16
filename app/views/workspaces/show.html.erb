@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= @workspace.title %><br>
 <%= cl_image_tag @workspace.photo1, height: 300, width: 400, crop: :fill %>
 
@@ -29,7 +30,36 @@
 </div>
 
 
+=======
+
+<div>
+  <div class="banner-workspace">
+    <%= cl_image_tag @workspace.photo1 %>
+  </div>
+     <div class="container-workspace">
+      <div class="col-md-8">
+      <h1><%= @workspace.title %><br></h1>
+      <p><%=@workspace.description%></p>
+    </div>
+    <div class="col-md-3">
+    <h3>Book this workspace</h3>
+    <%= simple_form_for [@workspace, Booking.new] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+       </ul>
+      <%= f.button :submit , :class => "text-center" %>
+     <% end %>
+    </div>
+  </div>
+</div>
+>>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
 
 
 </div>
 </div>
+<<<<<<< HEAD
+=======
+
+
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+>>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f

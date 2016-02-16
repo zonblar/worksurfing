@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'omniauth-facebook'
 
 
 group :development, :test do

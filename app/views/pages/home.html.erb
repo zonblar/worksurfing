@@ -1,5 +1,12 @@
 <!-- ######## NAVBAR ########### -->
-<%= render 'shared/navbar_logged_out'%>
+
+   <% if user_signed_in? %>
+      <%= render 'shared/navbar_home_logged_in'%>
+    <% else %>
+      <!-- Navbar Logged out -->
+      <%= render 'shared/navbar_logged_out'%>
+    <% end %>
+
 
 
 <!-- ######## BANNER ########### -->
@@ -218,5 +225,8 @@
     </div>
   </div>
 </div>
+ <div class="footer-wrapper">
+<%= render 'shared/footer' %>
+      </div>
 
 

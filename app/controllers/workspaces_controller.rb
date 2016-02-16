@@ -3,6 +3,10 @@ class WorkspacesController < ApplicationController
   def index
     @workspaces = Workspace.all
   end
+  def list
+    @user = current_user
+    @workspaces = current_user.workspaces
+  end
 
   def show
     @workspace = Workspace.find(params[:id])

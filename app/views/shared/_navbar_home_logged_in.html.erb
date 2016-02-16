@@ -1,0 +1,37 @@
+<div class="navbar-wagon">
+
+    <div>
+      <%= link_to root_path do %>
+          <%= image_tag 'blason_paris', class: "navbar-wagon-logo avatar-large", id:"logo" %>
+      <% end %>
+    </div>
+
+    <div class="navbar-wagon-pusher"></div>
+
+    <div>
+    <ul class="navbar-home-items" style="padding-top: 10px; color:white;">
+        <li style="padding-top: 10px; color:white;">
+        <%= link_to work_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link" do %>
+      Mes Workspaces <i class="fa fa-home"></i>
+        <% end %>
+       </li>
+      <li style="padding-top: 10px; color:white;">
+        <%= link_to conversations_path, :class =>"navbar-wagon-item worksurfing-home-navbar-link" do %>
+      Messages <i class="fa fa-envelope-o"></i>
+        <% end %>
+       </li>
+      <li style="padding-top: 10px; color:white;">
+        <%= link_to '#', :class =>"navbar-wagon-item worksurfing-home-navbar-link" do %>
+      Aide <i class="fa fa-life-ring"></i>
+        <% end %>
+       </li>
+       <li style="padding-top: 10px; color:white;">
+        <%= link_to user_path(current_user) , :class =>"navbar-wagon-item worksurfing-home-navbar-link" do %>
+      <%= current_user.first_name %>
+        <% end %>
+
+      </li>
+    </ul>
+  </div>
+
+</div>

@@ -2,16 +2,6 @@ Rails.application.routes.draw do
  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
-<<<<<<< HEAD
-  resources :users, only: [:show, :new, :create, :edit, :update]
-  authenticate :user do
-    resources :workspaces, only: [:new, :create, :edit, :update, :show] do
-    resources :bookings, only: [:show, :new, :create, :edit, :update]
-  end
-end
-
-=======
-
   resources :users, only: [:show, :new, :create, :edit, :update]
   authenticate :user do
     resources :workspaces, only: [:new, :create, :edit, :update, :show] do
@@ -20,7 +10,6 @@ end
 end
 
 resources :bookings
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -77,7 +66,3 @@ resources :bookings
   #     resources :products
   #   end
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f

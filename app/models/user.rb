@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
     has_many :workspaces
 
+  acts_as_messageable
+
   GENDERS = ["Femme", "Homme"]
 
   def self.find_for_facebook_oauth(auth)
@@ -21,6 +23,10 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+  def mailboxer_email(object)
+    email
   end
 
 end

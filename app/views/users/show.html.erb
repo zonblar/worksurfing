@@ -2,14 +2,14 @@
 
   <div class="container user-container">
     <row>
-      <div class="col-md-3 space-sm-4">
+      <div class="col-md-8 space-sm-4">
           <div class="sidenav">
 
           </div>
 
-      <div class="col-sm-8 form-container" style="background: white; border: 1px solid #CACCCD;">
+      <div class="col-sm-8 col-md-6 form-container" style="background: white; border: 1px solid #CACCCD;">
 
-        <h1>Salut je suis <%= user.first_name %> </h1>
+        <h1>Salut je suis <%= @user.first_name %> </h1>
 
           <p>
             <strong>Prénom:</strong>
@@ -29,10 +29,10 @@
           </p>
 
           <div class="form-actions">
-            <%= f.button :submit, "Modifier mon profil" %>
+            <%= link_to("Modifier mon profil", edit_user_path(@user)) %>
           </div>
-        <% end %>
 
+       </div>
       </div>
     </row>
   </div>

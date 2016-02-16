@@ -25,7 +25,9 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'omniauth-facebook'
 gem 'bootstrap-datepicker-rails'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-
+gem 'mailboxer'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'binding_of_caller'

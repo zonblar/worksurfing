@@ -83,5 +83,24 @@ video#bgvid {
 
 .mod-meet {
   padding: 30px;
-  background-color: #A3E0F6;
+  background-color: #ECF0F1;
+}
+
+.testimonial-examples {
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.explore-content {
+  position: relative;
+}
+
+.testimonial-examples {
+  position: absolute;
+  float:right;
+  top: 10;
+  color: black;
+  height: 450px;
+  border-radius: 5px;
+  padding: 20px;
 }

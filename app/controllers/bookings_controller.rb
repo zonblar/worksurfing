@@ -3,12 +3,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @workspace = Workspace.find(params[:workspace_id])
-    @booking = @workspace.bookings.new(booking_params)
-    @booking.save
+    @booking = Booking.new(booking_params)
+    @booking.workspace_id = @workspace.id
+    if @booking.save
+      redirect_to booking_path(@booking)
 
-    redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   private

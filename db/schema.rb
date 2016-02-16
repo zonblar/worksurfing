@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160215170944) do
-=======
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160216082642) do
-=======
-ActiveRecord::Schema.define(version: 20160215203944) do
->>>>>>> f8239642914663db0bbd7f6541f3000255273664
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,14 +48,11 @@ ActiveRecord::Schema.define(version: 20160215203944) do
     t.string   "portfolio"
     t.string   "description"
     t.string   "gender"
-<<<<<<< HEAD
-=======
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "token"
     t.datetime "token_expiry"
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -88,9 +77,6 @@ ActiveRecord::Schema.define(version: 20160215203944) do
     t.string   "photo1"
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "workspaces"
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
 end

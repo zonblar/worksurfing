@@ -24,6 +24,7 @@ gem "coffee-rails"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'omniauth-facebook'
 gem 'bootstrap-datepicker-rails'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 
 group :development, :test do

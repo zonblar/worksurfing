@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     @disable_nav = true
   end
 
+
+def redirect_back_or(path)
+  redirect_to request.referer || path
+end
+
 end

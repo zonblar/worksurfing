@@ -25,14 +25,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    user.update(user_params)
-    redirect_to users_path
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :encrypted_password, :job, :portfolio, :description, :gender)
+    params.require(:user).permit(:first_name, :last_name, :email, :job, :portfolio, :description, :gender)
   end
 
   def set_user

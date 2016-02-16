@@ -9,7 +9,7 @@
             <div class="sidenav">
         <ul class="sidenav-list">
           <li>
-            <%= link_to("Modifier mon profil", "user_path(@user)" , { class: "sidenav-item" }) %>
+            <strong>  <%= link_to("Modifier mon profil", "user_path(@user)" , { class: "sidenav-item" }) %> </strong>
           </li>
           <li>
             <%= link_to("Changer mon mot de passe", "user_path(@user)" , { class: "sidenav-item" }) %>
@@ -37,9 +37,9 @@
 
           <div class="form-inputs">
 
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :gender %>
+            <%= f.input :first_name, label: "Prénom" %>
+            <%= f.input :last_name, label: "Nom de famille" %>
+            <%= f.input :gender, label: "Sexe" %>
             <%= f.input :email, required: true, autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -52,7 +52,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Update" %>
+            <%= f.button :submit, "Enregistrer" %>
           </div>
         <% end %>
 

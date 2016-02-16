@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking.workspace_id = @workspace.id
     if @booking.save
       redirect_to booking_path(@booking)
-
     else
       render :new
     end

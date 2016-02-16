@@ -1,17 +1,13 @@
 
 
-<div class="">
-  <div class="banner-flat" style="background-image: url('<%=@workspace.photo1%>');">
+  <!-- main banner -->
+  <div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>');">
   </div>
 
 
-<div>
-  <div class="banner-workspace">
-
-    <%= cl_image_tag @workspace.photo1 %>
-  </div>
-     <div class="container-workspace">
-      <div class="col-md-8">
+  <div class="container-workspace">
+    <!-- description side of the page -->
+    <div class="col-md-8">
       <h1><%= @workspace.title %><br></h1>
       <p><%=@workspace.description%></p>
          <%@workspace.availabilities.each do |availability| %>
@@ -40,8 +36,38 @@
 </div>
 
 
+        <!-- Full photo gallery -->
+        <% if @workspace.photos? %>
+          <% @workspace.photos.each do |photo| %>
+          <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
+          <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
+
+            <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
+              <!-- lightbox feature -->
+              <a href='<%= gallery_size %>' data-lightbox="roadtrip">
+              <%= sample_size %></a>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
 
 
+    <!-- Booking side of the page -->
+    <div class="hidden-xs col-md-4">
+      <h3>Book this workspace</h3>
+      <%= simple_form_for [@workspace, Booking.new] do |f| %>
+        <%= f.input :start_date , :class => 'form-control datepicker'%>
+        <%= f.input :end_date , :class => 'form-control datepicker'%>
+        <%= f.button :submit , :class => "text-center" %>
+      <% end %>
+
+      <div class="input-daterange input-group" id="datepicker">
+        <input type="text" class="input-sm form-control" name="start" />
+        <span class="input-group-addon">to</span>
+        <input type="text" class="input-sm form-control" name="end" />
+      </div>
+    </div>
+  </div>
 
 
 

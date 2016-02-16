@@ -17,7 +17,6 @@ class WorkspacesController < ApplicationController
     @user_id = current_user.id
 
     if @workspace.save
-
       redirect_to new_workspace_availability_path(@workspace)
     else
       render :new
@@ -27,7 +26,7 @@ class WorkspacesController < ApplicationController
   private
 
   def workspace_params
-    params.require(:workspace).permit(:photo1, :photo_cache1,:title, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space)
+    params.require(:workspace).permit(:photo1, :photo_cache1,:title, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space, photos: [])
 
   end
 end

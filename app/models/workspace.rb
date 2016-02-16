@@ -18,5 +18,6 @@ class Workspace < ActiveRecord::Base
     end
     output
   end
+  has_attachments :photos, maximum: 10
 end
 

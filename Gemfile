@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
+gem "responders"
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -36,4 +37,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+source "https://rails-assets.org" do
+  gem 'rails-assets-lightbox'
 end

@@ -23,9 +23,9 @@
               <% @workspace.photos.each do |photo| %>
                 <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
 
-                <!-- lightbox feature -->
-                <a href= "" data-lightbox="roadtrip">
-                <%= cl_image_tag photo.path, width: 217, height: 141, crop: :fill %></a>
+                  <!-- lightbox feature -->
+                  <a href="" data-lightbox="roadtrip">
+                  <%= cl_image_tag photo.path, width: 217, height: 141, crop: :fill %></a>
 
                 </div>
               <% end %>
@@ -53,11 +53,6 @@
 
 
 </div>
-
-
-
-
-
 
 
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>

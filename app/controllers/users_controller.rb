@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @gender = ["Femme", "Homme"]
     @user = User.new
   end
 

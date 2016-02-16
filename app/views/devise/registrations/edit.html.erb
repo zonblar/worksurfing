@@ -36,10 +36,12 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+            <%= f.input :gender, :collection => @gender, label: "Sexe"%>
 
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom de famille" %>
             <%= f.input :gender, label: "Sexe" %>
+
             <%= f.input :email, required: true, autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

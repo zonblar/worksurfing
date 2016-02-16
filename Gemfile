@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'carrierwave'
+gem "attachinary"
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
 gem 'omniauth-facebook'
 
 

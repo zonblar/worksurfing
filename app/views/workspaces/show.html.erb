@@ -1,4 +1,10 @@
 
+
+<div class="">
+  <div class="banner-flat" style="background-image: url('<%=@workspace.photo1%>');">
+  </div>
+
+
 <div>
   <div class="banner-workspace">
     <%= cl_image_tag @workspace.photo1 %>
@@ -25,4 +31,6 @@
 </div>
 
 
+
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+

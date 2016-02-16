@@ -36,7 +36,11 @@ class UsersController < ApplicationController
   end
 
   def set_user
+<<<<<<< HEAD
+    @user = user.find(params[:id])
+=======
     @user = User.find(params[:id])
+>>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
   end
 
 end

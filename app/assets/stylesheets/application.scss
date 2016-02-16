@@ -40,3 +40,33 @@
   margin-bottom: 1em;
   margin-top: 1em;
 }
+
+.form-control{
+        -webkit-appearance:none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        margin: 0px;
+}
+
+select {
+  width: 200px !important;
+}
+
+select.custom {
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+border-radius: 2px;
+line-height:21px;
+    padding-top: 5px;
+
+}
+
+select.custom::-ms-expand {
+  display: none;
+}

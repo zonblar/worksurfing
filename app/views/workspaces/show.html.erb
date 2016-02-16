@@ -1,34 +1,24 @@
-<%= @workspace.title %><br>
-<%= cl_image_tag @workspace.photo1, height: 300, width: 400, crop: :fill %>
 
-
-<div class="">
-  <div class="banner-flat" style="background-image: url('<%=@workspace.photo1%>');">
+<div>
+  <div class="banner-workspace">
+    <%= cl_image_tag @workspace.photo1 %>
   </div>
-
-</div>
-<div class="wrapper-presentation">
- <div class="container">
-  <div class="row">
-   <div class="col-md-3">
-    <div class="card-owner">
-    <img class = "avatar">
-       <p><%=  %></p>
+     <div class="container-workspace">
+      <div class="col-md-8">
+      <h1><%= @workspace.title %><br></h1>
+      <p><%=@workspace.description%></p>
     </div>
-   </div>
-
-   <div class="col-md-9">
-      <h4><%=  %></h4>
-      <p><%=%></p>
-      <i class="fa fa-bed"></i>
-      <i class="fa fa-home"></i>
-      <i class="fa fa-users"></i>
-   </div>
+    <div class="col-md-3">
+    <h3>Book this workspace</h3>
+    <%= simple_form_for [@workspace, Booking.new] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+       </ul>
+      <%= f.button :submit , :class => "text-center" %>
+     <% end %>
+    </div>
   </div>
 </div>
-</div>
-
-
 
 
 </div>

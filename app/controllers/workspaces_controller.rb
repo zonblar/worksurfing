@@ -1,5 +1,5 @@
 class WorkspacesController < ApplicationController
-
+  before_filter :disable_nav
   def show
     @workspace = Workspace.find(params[:id])
   end
@@ -25,3 +25,5 @@ class WorkspacesController < ApplicationController
     params.require(:workspace).permit(:photo1, :photo_cache1,:title, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space)
   end
 end
+
+

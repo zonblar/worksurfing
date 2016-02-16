@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     authenticate :user do
       resources :workspaces, only: [:new, :create, :edit, :update, :show] do
       resources :bookings, only: [:index, :create]
+      resources :availabilities, only: [:new, :create]
     end
   end
   mount Attachinary::Engine => "/attachinary"

@@ -1,0 +1,10 @@
+<div class="text-center"><h2>Mes workspaces</h2>
+<% @workspaces.each do |workspace| %>
+<h2><%= workspace.title %></h2>
+<% end %>
+
+
+<%= link_to new_workspace_path , :class =>"btn btn-primary" do %>
+      Add a workspace
+        <% end %>
+</div>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   resources :bookings
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+
+    end
     authenticate :user do
       resources :workspaces, only: [:index, :new, :create, :edit, :update, :show] do
       resources :bookings, only: [:index, :create]
@@ -20,5 +22,6 @@ Rails.application.routes.draw do
     post :reply
   end
 end
+    get 'users/:id/workspaces', to: 'workspaces#list', as: 'work'
 end
 

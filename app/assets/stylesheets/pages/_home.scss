@@ -6,7 +6,7 @@
 .banner {
  background-repeat: no-repeat;
  background-size: cover;
- height: 100vh;
+ height: 90vh;
  color: white;
  position: relative;
 }
@@ -65,20 +65,49 @@ video#bgvid {
 }
 
 .explore-content {
-  background-image: url('background_place.jpg');
-  background-repeat: no-repeat;
   color: white;
   height: 550px;
+  position: relative;
 }
 
 .mod-explore {
-  padding: 30px;
+  padding: 50px;
   background-color: #ECF0F1;
 }
 
-.testimonial-examples {
+.container-explore{
+  background-image: url('background_place.jpg');
+  background-repeat: no-repeat;
+}
+
+.testimonial-examples-explore {
   background-color: white;
   border: 1px solid white;
+  padding: 10px;
+  border-radius: 2px;
+  position: absolute;
+  left: 500px;
+  bottom: 10px;
+  width: 400px;
+  color: black;
+  height: 500px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.explore-content-title{
+    font-weight: lighter;
+    font-size: 34px;
+    line-height: 1.1;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meet-content {
+  color: white;
+  height: 550px;
+  position: relative;
 }
 
 .mod-meet {
@@ -86,19 +115,29 @@ video#bgvid {
   background-color: #ECF0F1;
 }
 
-.testimonial-examples {
+.container-meet{
+  background-image: url('background_work.jpg');
+  background-repeat: no-repeat;
+  background-position: 90% 10%;
+}
+
+.meet-content-title{
+    font-weight: lighter;
+    font-size: 34px;
+    line-height: 1.1;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial-examples-meet {
+  background-color: white;
+  border: 1px solid white;
   padding: 10px;
   border-radius: 2px;
-}
-
-.explore-content {
-  position: relative;
-}
-
-.testimonial-examples {
   position: absolute;
-  left: 500px;
-  top: -100px;
+  left: 50px;
+  bottom: 20px;
   width: 400px;
   color: black;
   height: 500px;

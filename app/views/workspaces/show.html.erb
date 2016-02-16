@@ -7,6 +7,7 @@
 
 <div>
   <div class="banner-workspace">
+
     <%= cl_image_tag @workspace.photo1 %>
   </div>
      <div class="container-workspace">
@@ -17,11 +18,16 @@
     <div class="col-md-3">
     <h3>Book this workspace</h3>
     <%= simple_form_for [@workspace, Booking.new] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date , :class => 'form-control datepicker'%>
+      <%= f.input :end_date , :class => 'form-control datepicker'%>
        </ul>
       <%= f.button :submit , :class => "text-center" %>
      <% end %>
+     <div class="input-daterange input-group" id="datepicker">
+    <input type="text" class="input-sm form-control" name="start" />
+    <span class="input-group-addon">to</span>
+    <input type="text" class="input-sm form-control" name="end" />
+</div>
     </div>
   </div>
 </div>
@@ -29,6 +35,10 @@
 
 </div>
 </div>
+
+
+
+
 
 
 

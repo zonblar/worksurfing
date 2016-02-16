@@ -1,41 +1,39 @@
   <div class="browsing">
-    <row>
+    <div class="row">
 
 
       <!--       workspace listing side    -->
-      <div class="col-xs-12 col-sm-7">
+      <div class="col-xs-12 col-sm-7" style="padding-right: 0">
 
         <div class="workspace-listing">
-          <div class="workspace-filters">
+
+          <div class="workspace-filters filter-container">
+
             <div class="date-filter">
-              <ul style="inline">
-                <il>
-                  <p>Dates</p>
-                </il>
-
-                <il>              <!--       Reference to the date picker    -->
-                  <%= image_tag "assets/images/index_sample/date_sample.png", {class: ""}%>
-                </il>
-
-              </ul>
-
+              <p>Dates</p>
+              <!--       Reference to the date picker    -->
+              <%= image_tag "index_sample/date_sample.png", {class: ""}%>
             </div>
+
             <hr>
+
             <div class="room-type-filter">
               <p>Room Type</p>
-              <%= image_tag "assets/images/index_sample/room_type_sample.png", {class: ""}%>
+              <%= image_tag "index_sample/room_type_sample.png", {class: ""}%>
 
             </div>
+
             <hr>
+
             <div class="price-filter">
               <p>Price Range</p>
-              <%= image_tag "assets/images/index_sample/price_range_sample.png", {class: ""}%>
+              <%= image_tag "index_sample/price_range_sample.png", {class: ""}%>
             </div>
 
           </div>
           <div class="workspace-cards-listing">
-            <row>
-              <div class="wrapper" style="background: #F5F5F5">
+            <div class="wrapper" style="background: #F5F5F5">
+              <div class="row">
                 <div class="col-xs-12 col-sm-6">
                 <!--       iterating on th pending for workspace-cards render from Mehdi   -->
                   <%= render 'shared/card' %>
@@ -69,17 +67,17 @@
                   <%= render 'shared/card' %>
                 </div>
               </div>
-            </row>
+            </div>
           </div>
         </div>
       </div>
 
       <!--       map side    -->
-      <div class="hidden-xs col-sm-5 eye-mapper" >
-      <%= image_tag "assets/images/index_sample/google_map_screenshot.png", {class: ""}%>
+      <div class="hidden-xs col-sm-5 eye-mapper" style="padding-left: 0">
+      <%= image_tag "index_sample/google_map_screenshot_sample.png", {class: ""}%>
 
         <!--       Need to be fixed (i.e. no scrolling allowed)   -->
 
       </div>
-    </row>
+    </div>
   </div>

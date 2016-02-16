@@ -17,7 +17,6 @@ class WorkspacesController < ApplicationController
     @user_id = current_user.id
 
     if @workspace.save
-      raise
       redirect_to workspace_path(@workspace)
     else
       render :new

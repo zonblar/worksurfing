@@ -7,35 +7,48 @@
 
   <div>
     <div class="banner-workspace">
-
-      <%= cl_image_tag @workspace.photo1 %>
+      <%= cl_image_path @workspace.photos.first&.path %>
     </div>
 
       <div class="container-workspace">
 
+
+        <!-- description side of the page -->
         <div class="col-md-8">
-        <h1><%= @workspace.title %><br></h1>
-        <p><%=@workspace.description%></p>
-      </div>
+          <h1><%= @workspace.title %><br></h1>
+          <p><%=@workspace.description%></p>
 
-      <div class="col-md-3">
-      <h3>Book this workspace</h3>
-        <%= simple_form_for [@workspace, Booking.new] do |f| %>
-        <%= f.input :start_date , :class => 'form-control datepicker'%>
-        <%= f.input :end_date , :class => 'form-control datepicker'%>
+            <!-- Full photo gallery -->
+            <% if @workspace.photos? %>
+              <% @workspace.photos.each do |photo| %>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
 
-        <%= f.button :submit , :class => "text-center" %>
-      <% end %>
+                <!-- lightbox feature -->
+                <a href= "" data-lightbox="roadtrip">
+                <%= cl_image_tag photo.path, width: 217, height: 141, crop: :fill %></a>
 
-        <div class="input-daterange input-group" id="datepicker">
-          <input type="text" class="input-sm form-control" name="start" />
-          <span class="input-group-addon">to</span>
-          <input type="text" class="input-sm form-control" name="end" />
+                </div>
+              <% end %>
+            <% end %>
         </div>
 
-      </div>
 
-    </div>
+        <!-- Booking side of the page -->
+        <div class="hidden-xs col-md-4">
+          <h3>Book this workspace</h3>
+          <%= simple_form_for [@workspace, Booking.new] do |f| %>
+            <%= f.input :start_date , :class => 'form-control datepicker'%>
+            <%= f.input :end_date , :class => 'form-control datepicker'%>
+            <%= f.button :submit , :class => "text-center" %>
+          <% end %>
+
+          <div class="input-daterange input-group" id="datepicker">
+            <input type="text" class="input-sm form-control" name="start" />
+            <span class="input-group-addon">to</span>
+            <input type="text" class="input-sm form-control" name="end" />
+          </div>
+        </div>
+      </div>
   </div>
 
 

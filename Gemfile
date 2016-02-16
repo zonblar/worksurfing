@@ -17,6 +17,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cloudinary'
+gem "attachinary"
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'omniauth-facebook'
 gem 'bootstrap-datepicker-rails'

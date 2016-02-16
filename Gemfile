@@ -29,7 +29,6 @@ gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 
-
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

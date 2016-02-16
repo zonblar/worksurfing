@@ -1,32 +1,5 @@
 <!-- ######## NAVBAR ########### -->
-<div class="navbar-wagon">
-  <div class="navbar-wagon-container container-fluid ">
-
-    <div>
-      <%= image_tag 'blason_paris', class: "navbar-wagon-logo avatar-large", id:"logo" %>
-    </div>
-
-    <div class="navbar-wagon-pusher"></div>
-
-
-    <div class="navbar-wagon-item navbar-wagon-link">
-      <%= link_to 'Sécurité', '', class: "btn-transparent" %>
-    </div>
-
-    <div class="navbar-wagon-item navbar-wagon-link">
-      <%= link_to 'Devenez Workmate', '', class: "btn btn-success" %>
-    </div>
-
-    <div class="navbar-wagon-item navbar-wagon-link">
-      <%= link_to 'Inscription', '', class: "btn btn-primary" %>
-    </div>
-
-    <div class="navbar-wagon-item navbar-wagon-link">
-      <%= link_to 'Connexion', '', class: "btn btn-login" %>
-    </div>
-
-  </div>
-</div>
+<%= render 'shared/navbar_logged_out'%>
 
 
 <!-- ######## BANNER ########### -->
@@ -186,6 +159,8 @@
 </div>
 </section>
 
+<!-- A faire à la fin s'il y à du time -->
+<!-- ######## How It Works SECTIONS ###########
 <section class="mod-how-it-works">
   <div class="how-it-works-content">
 
@@ -194,7 +169,7 @@
 
   </div>
 </section>
-
+######## Safety SECTIONS ###########
 <section class="mod-safety">
   <div class="safety-content">
 
@@ -202,9 +177,46 @@
   <div class="mod-cards">
 
   </div>
-</section>
+</section> -->
 
 
+<!-- ######## Cards ########### -->
 
+<div class="workspace-container">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="workspace-card">
+        <%= render 'shared/card' %>
+      </div>
+    </div>
+  </div>
+</div>
 
 

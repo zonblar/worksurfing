@@ -66,3 +66,35 @@
   border-radius: 3px;
   background-color: white;
 }
+
+
+// Navbar logged out
+
+.navbar-wagon {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-wagon-pusher {
+  flex: 1 1 auto;
+}
+
+.worksurfing-default-link{
+  text-decoration: none;
+  color: white;
+}
+
+.worksurfing-default-link:hover{
+  text-decoration: none;
+  color: white;
+  opacity: 0.6;
+}
+
+.navbar-wagon ul {
+  list-style: none;
+  float: right;
+}
+
+.navbar-wagon ul li{
+  display: inline-block;
+}

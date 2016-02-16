@@ -83,7 +83,10 @@ GEM
       sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+<<<<<<< HEAD
+=======
     hashie (3.4.3)
+>>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -105,8 +108,11 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+<<<<<<< HEAD
+=======
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+>>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f
     netrc (0.11.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)

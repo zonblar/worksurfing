@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :bookings
     resources :users, only: [:show, :edit, :update]
     authenticate :user do
-      resources :workspaces, only: [:new, :create, :edit, :update, :show] do
+      resources :workspaces, only: [:index, :new, :create, :edit, :update, :show] do
       resources :bookings, only: [:index, :create]
       resources :availabilities, only: [:new, :create]
     end

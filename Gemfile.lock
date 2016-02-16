@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: aa74e9e4301cb1ec7cd1adbdc294e037f881d4b5
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,16 +58,13 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.5.0)
+      railties (>= 3.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.2)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     cloudinary (1.1.2)
       aws_cf_signer
       rest-client
@@ -218,8 +225,9 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
+  bootstrap-datepicker-rails
   bootstrap-sass
-  carrierwave
+  carrierwave!
   cloudinary
   devise
   figaro

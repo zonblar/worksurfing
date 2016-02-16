@@ -8,7 +8,8 @@
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :city, :id => "autocomplete" %>
-   <%= f.input :photo1, :label => "Photo" %>
+   <%= f.input :photo1, :label => "Photo"%>
+   <%= f.file_field :photos, multiple: true %>
   <%= f.input :photo1_cache, as: :hidden %>
  <span> <%= f.input :price_per_day %>
   <%= f.input :price_per_week %></span>
@@ -24,12 +25,3 @@
 <% end %>
 
 </div>
-
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 35041f6d8a021b3a1a2de764773472c571170c7f

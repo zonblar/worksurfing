@@ -10,6 +10,9 @@ class WorkspacesController < ApplicationController
 
   def show
     @workspace = Workspace.find(params[:id])
+    @alert_message = "You are viewing #{@workspace.title}"
+    @workspace_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
+
   end
 
   def new

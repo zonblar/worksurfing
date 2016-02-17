@@ -3,6 +3,9 @@ class Workspace < ActiveRecord::Base
   has_many :bookings
   has_many :availabilities
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   # def available?(booking)
   #   self.availabilities.where("end_date > ?", booking.start_date)
   # end

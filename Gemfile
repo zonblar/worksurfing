@@ -29,6 +29,8 @@ gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "geocoder"
+gem "gmaps4rails"
+
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -45,4 +47,6 @@ end
 
 source "https://rails-assets.org" do
   gem 'rails-assets-lightbox'
+  gem "rails-assets-underscore"
+
 end

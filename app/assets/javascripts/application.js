@@ -7,5 +7,4 @@
 //= require lightbox
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
-//= require typed
 //= require_tree .

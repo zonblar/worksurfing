@@ -202,26 +202,13 @@
 
 <div class="workspace-container">
   <div class="row">
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
-    <div class="col-xs-4">
-        <%= render 'shared/card' %>
-    </div>
+
+    <% @workspaces.each do |workspace| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "card", workspace: workspace %>
+      </div>
+    <% end %>
+
   </div>
 </div>
 

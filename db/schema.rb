@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(version: 20160217081536) do
     t.json     "photos"
     t.float    "latitude"
     t.float    "longitude"
-
   end
 
   add_foreign_key "availabilities", "workspaces"

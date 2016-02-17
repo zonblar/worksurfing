@@ -11,22 +11,16 @@
       <h1><%= @workspace.title %><br></h1>
       <p><%=@workspace.description%></p>
          <%@workspace.availabilities.each do |availability| %>
-         <p><%=availability.start_date%> to <%=availability.end_date%></p>
+         <!-- <p><%=availability.start_date%> to <%=availability.end_date%></p> -->
          <% end%>
     </div>
     <div class="col-md-3">
     <h3>Book this workspace</h3>
     <%= simple_form_for [@workspace, Booking.new] do |f| %>
-      <%= f.input :start_date , :class => 'form-control datepicker'%>
-      <%= f.input :end_date , :class => 'form-control datepicker'%>
-       </ul>
-      <%= f.button :submit , :class => "text-center" %>
+        <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
+        <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+        <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
      <% end %>
-     <div class="input-daterange input-group" id="datepicker">
-    <input type="text" class="input-sm form-control" name="start" />
-    <span class="input-group-addon">to</span>
-    <input type="text" class="input-sm form-control" name="end" />
-    </div>
     </div>
   </div>
 </div>

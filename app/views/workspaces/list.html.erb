@@ -1,16 +1,26 @@
-<div class="text-center"><h2>Mes workspaces</h2>
-<% @workspaces.each do |workspace| %>
-<h2><%= workspace.title %></h2>
-<p><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
-      Update Workspace
-        <% end %></p>
+<div class="container">
+  <h2 class="text-center">Mes workspaces</h2>
+  <% @workspaces.each do |workspace| %>
+    <div class="col-md-offset-3 col-md-4">
+      <h2><%= workspace.title %></h2>
+        <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
+       <span><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
+        Update
+          <% end %>
+       <%= link_to "Delete", workspace_path(workspace), :confirm => "Are you sure?", :method => :delete %></span>
+      </div>
+    <div class="col-md-4">
+      <h3>Bookings</h3>
+      <% workspace.bookings.each do |booking| %>
+        <p>From <%= booking.start_date%> until <%= booking.end_date%></p>
+      <%end%>
+    </div>
+  <% end %>
+</div>
 
-         <p> <%= link_to "Delete", workspace_path(workspace), :confirm => "Are you sure?", :method => :delete %></p>
 
-<% end %>
-
-
-<%= link_to new_workspace_path , :class =>"btn btn-primary" do %>
-      Add a workspace
-        <% end %>
+<div class="text-center">
+<%= link_to new_workspace_path , :class =>"btn btn-primary text-center" do %>
+        Add a workspace
+          <% end %>
 </div>

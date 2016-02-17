@@ -10,16 +10,24 @@
   </head>
   <body>
     <div class="body-wrapper">
+
       <div class="navbar-wrapper">
         <%= render 'shared/navbar' unless @disable_nav %>
         <%= render 'shared/flashes' %>
       </div>
-      <div class="content-wrapper">
-        <%= yield %>
-      </div>
-      <div class="footer-wrapper">
+
+        <div class="content-wrapper">
+          <%= yield %>
+        </div>
+    <% if current_page?(root_path) %>
+       <div></div>
+    <% else %>
+       <div class="footer-wrapper">
         <%= render 'shared/footer' %>
       </div>
+   <% end %>
+    </div>
+
       <%= javascript_include_tag 'application' %>
       <%= cloudinary_js_config %>
     </div>

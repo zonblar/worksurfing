@@ -1,4 +1,12 @@
 <!-- ######## NAVBAR ########### -->
+<script>
+    $(function(){
+        $(".element").typed({
+            strings: ["First sentence.", "Second sentence."],
+            typeSpeed: 0
+        });
+    });
+</script>
 
    <% if user_signed_in? %>
       <%= render 'shared/navbar_home_logged_in'%>
@@ -19,6 +27,7 @@
     <div class="banner-text">
       <h1 class="text-jumbo">Travaillez comme à la maison, en mieux</h1>
       <h4>Trouvez un espace de travail, échangez avec des gens cools, près de chez vous</h4>
+      <span class="element"></span>
     </div>
       <%= link_to "Mode d'emploi",'', class: "btn-transparent" %>
   </div>

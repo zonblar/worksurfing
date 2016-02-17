@@ -28,6 +28,12 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
+gem "typedjs-rails", "~> 1.0.3"
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-typed.js','>= 1.1.1'
+end
+
 
 group :development, :test do
   gem 'binding_of_caller'

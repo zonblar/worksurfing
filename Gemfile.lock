@@ -218,9 +218,9 @@ GEM
       sprockets-rails
     rails-assets-jquery (2.2.0)
     rails-assets-lightbox (2.8.2)
-    rails-assets-jquery (~> 2)
-    rails-assets-underscore (1.8.3)
+      rails-assets-jquery (~> 2)
     rails-assets-typed.js (1.1.1)
+    rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -316,8 +316,8 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.5.1)
   rails-assets-lightbox!
-  rails-assets-underscore!
   rails-assets-typed.js (>= 1.1.1)!
+  rails-assets-underscore!
   rails_12factor
   rails_admin!
   redis

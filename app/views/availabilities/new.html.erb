@@ -1,8 +1,12 @@
 <h1>Add availabilities to your workspace</h1>
-<div class="col-md-8">
-<%= simple_form_for [@workspace, @availability] do |f| %>
-    <%= f.input :start_date , :class => 'form-control datepicker'%>
-      <%= f.input :end_date , :class => 'form-control datepicker'%>
-      <%= f.button :submit , :class => "text-center" %>
-<% end %>
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+  <%= simple_form_for [@workspace, @availability] do |f| %>
+      <%= f.input :start_date , :class => 'form-control datepicker'%>
+        <%= f.input :end_date , :class => 'form-control datepicker'%>
+        <%= f.button :submit , :class => "text-center" %>
+  <% end %>
+  </div>
+</div>
 </div>

@@ -213,15 +213,12 @@
       </div>
     <% end %>
   </div>
-  <button class="btn btn-primary center-block" href="workspaces_path" type="submit">  Naviguer parmi notre sélection</button>
+  <div class="exploration-button center-block" style="width: 400px">
+      <%= link_to workspaces_path, class:"btn btn-primary center-block" do %>
+         Naviguez parmi notre sélection
+      <% end %>
+  </div>
 </div>
 
-
-<!-- ######## Footer ########### -->
-
-
-       <div class="footer-wrapper">
-        <%= render 'shared/footer' %>
-      </div>
 
 

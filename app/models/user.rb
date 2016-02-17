@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     has_many :workspaces
     has_many :bookings
 
+  has_attachment :picture
+
   acts_as_messageable
 
   GENDERS = ["Femme", "Homme"]

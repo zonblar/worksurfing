@@ -154,7 +154,6 @@ ActiveRecord::Schema.define(version: 20160217081536) do
     t.datetime "updated_at",     null: false
     t.string   "title"
     t.string   "photo1"
-    t.json     "photos"
     t.float    "latitude"
     t.float    "longitude"
   end

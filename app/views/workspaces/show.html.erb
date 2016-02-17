@@ -1,12 +1,9 @@
-
-
-  <!-- main banner -->
-  <div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>');">
-  </div>
-
-
-  <div class="container-workspace">
-    <!-- description side of the page -->
+<!-- main banner -->
+<div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>');">
+</div>
+<div class="container-workspace" style="padding-bottom:50px">
+  <!-- description side of the page -->
+  <div class="row">
     <div class="col-md-8">
       <h1><%= @workspace.title %><br></h1>
       <p><%=@workspace.description%></p>
@@ -30,20 +27,36 @@
         <!-- Full photo gallery -->
         <% if @workspace.photos? %>
           <% @workspace.photos.each do |photo| %>
+      <%@workspace.availabilities.each do |availability| %>
+        <p><%=availability.start_date%> to <%=availability.end_date%></p>
+      <% end%>
+      <% if @workspace.photos? %>
+        <% @workspace.photos.each do |photo| %>
+
           <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
           <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
 
-            <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
-              <!-- lightbox feature -->
-              <a href='<%= gallery_size %>' data-lightbox="roadtrip">
-              <%= sample_size %></a>
-            </div>
-          <% end %>
+          <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
+            <!-- lightbox feature -->
+            <a href='<%= gallery_size %>' data-lightbox="roadtrip">
+              <%= sample_size %>
+            </a>
+          </div>
         <% end %>
+      <% end %>
     </div>
-
-
-
-
-
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <div class="col-md-3">
+      <h3>Book this workspace</h3>
+      <%= simple_form_for [@workspace, Booking.new] do |f| %>
+        <%= f.input :start_date , :class => 'form-control datepicker'%>
+        <%= f.input :end_date , :class => 'form-control datepicker'%>
+        <%= f.button :submit , :class => "text-center" %>
+      <% end %>
+      <div class="input-daterange input-group" id="datepicker">
+        <input type="text" class="input-sm form-control" name="start" />
+        <span class="input-group-addon">to</span>
+        <input type="text" class="input-sm form-control" name="end" />
+      </div>
+    </div>
+  </div>
+</div>

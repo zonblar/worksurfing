@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, omniauth_providers: [:facebook]
     has_many :workspaces
+    has_many :bookings
 
   acts_as_messageable
 

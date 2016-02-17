@@ -12,6 +12,7 @@ class WorkspacesController < ApplicationController
       marker.lng workspace.longitude
     end
   end
+
   def list
     @user = current_user
     @workspaces = current_user.workspaces

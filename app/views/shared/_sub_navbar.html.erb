@@ -17,18 +17,38 @@
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to("Boite de réception", conversations_path) %></li>
-        <li class="active"><a href="#">Mes annonces</a></li>
-        <li><a href="#">Mes réservations</a></li>
-        <li><a href="#">Profil <span class="sr-only">(current)</span></a></li
-        >
+
+        <li class="active">
+        <%= link_to work_path(current_user) do %>
+           Mes Workspaces
+        <% end %>
+       </li>
+
+        <li class="active">
+        <%= link_to book_path(current_user) do %>
+           Mes réservations
+        <% end %>
+       </li>
+
+
+          <li>
+        <%= link_to user_path(current_user) do %>
+           Profil
+        <% end %>
+       </li>
+
+
         <li><a href="#">Mon compte</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+
+
+
     <% else %>
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to("Boite de réception", conversations_path) %></li>
-        <li><a href="#">Mes annonces</a></li>
+        <li><a href="#">Mes Workspaces</a></li>
         <li><a href="#">Mes réservations</a></li>
         <li class="active"><a href="#">Profil <span class="sr-only">(current)</span></a></li
         >

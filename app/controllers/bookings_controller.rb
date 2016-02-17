@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -20,6 +22,11 @@ class BookingsController < ApplicationController
       flash[:alert]
     end
 
+  end
+
+  def list
+    @user = current_user
+    @bookings = current_user.bookings
   end
 
 

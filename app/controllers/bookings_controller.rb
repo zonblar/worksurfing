@@ -3,6 +3,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -10,7 +12,7 @@ class BookingsController < ApplicationController
   def create
     @workspace = Workspace.find(params[:workspace_id])
     @booking = Booking.new(booking_params)
-
+    @booking.user = current_user
     @booking.workspace = @workspace
     if @workspace.available?(@booking)
       @booking.save
@@ -20,6 +22,11 @@ class BookingsController < ApplicationController
       flash[:alert]
     end
 
+  end
+
+  def list
+    @user = current_user
+    @bookings = current_user.bookings
   end
 
 

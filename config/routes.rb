@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   end
 end
     get 'users/:id/workspaces', to: 'workspaces#list', as: 'work'
+    get 'users/:id/bookings', to: 'bookings#list', as: 'book'
 end
 

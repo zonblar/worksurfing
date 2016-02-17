@@ -4,7 +4,9 @@
   <h2 class="text-center">Mes workspaces</h2>
   <% @workspaces.each do |workspace| %>
     <div class="col-md-offset-3 col-md-4">
-      <h2><%= workspace.title %></h2>
+      <h2><%= link_to workspace_path(workspace)  do %>
+        <%= workspace.title %>
+          <% end %></h2>
         <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
        <span><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
         Update
@@ -19,7 +21,6 @@
     </div>
   <% end %>
 </div>
-
 
 <div class="text-center">
 <%= link_to new_workspace_path , :class =>"btn btn-primary text-center" do %>

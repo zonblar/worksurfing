@@ -1,19 +1,14 @@
-<div class="wrapper-white padded">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/card-random.jpg');">
-          <div class="card-category">Paris 20</div>
-          <div class="card-description">
-            <h2>Mehdi's flat</h2>
-            <p>Great space full of tech lovers</p>
-          </div>
-          <%= image_tag 'mehdi.jpg', class: "card-user avatar" %>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <!-- card limit-->
-      </div>
-    </div>
+<% card_photo = cl_image_path workspace.photos.first&.path %>
+
+<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= card_photo %>');">
+  <div class="card-category"><%= workspace.type_of_space %></div>
+  <div class="price-tag">
+    <p><%= workspace.price_per_week %> € per week </p>
   </div>
+  <div class="card-description">
+    <p><%= workspace.title %></p>
+    <!--     adding review here soon  -->
+  </div>
+  <img class="card-user avatar" src="user.jpg">
+  <%= link_to "", workspace_path(workspace), { class: "card-link" } %>
 </div>

@@ -1,41 +1,68 @@
-<div class="navbar-wagon">
-
-
-
   <form action="" class="navbar-wagon-search">
       <input id="form8" type="text" class="navbar-wagon-search-input" placeholder="&#xF002; Where do you want to work ?" style="font-family:FontAwesome" />
   </form>
 
   <div class="navbar-wagon-pusher"></div>
-  <div class="divider-vertical1" id="vertical1"></div>
-  <div class="divider-vertical1" id="vertical2"></div>
-  <div class="divider-vertical1" id="vertical3"></div>
-  <div class="divider-vertical1" id="vertical4"></div>
-  <div class="divider-vertical1" id="vertical5"></div>
 
   <div>
-    <ul class="navbar-items">
-        <li>
-        <%= link_to work_path(current_user), :class =>"navbar-wagon-item worksurfing-navbar-link" do %>
-      Mes Workspaces <i class="fa fa-home"></i>
+    <ul class="navbar-home-items black-items" style="padding-top: 10px; color:white;">
+
+      <li class="dropdown">
+        <a href="" class="navbar-wagon-item worksurfing-navbar-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Hôte <i class="fa fa-home"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li>
+            <%= link_to "Workspaces", work_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+          </li>
+          <li>
+            <%= link_to "Tableau de bord", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+          </li>
+        </ul>
+       </li>
+
+      <li class="dropdown">
+        <%= link_to conversations_path, :class =>"navbar-wagon-item worksurfing-home-navbar-link" do %>
+          Messages <i class="fa fa-envelope-o"></i>
         <% end %>
        </li>
-      <li>
-        <%= link_to conversations_path, :class =>"navbar-wagon-item worksurfing-navbar-link" do %>
-      Messages <i class="fa fa-envelope-o"></i>
-        <% end %>
+
+      <li class="dropdown">
+        <a href="" class="navbar-wagon-item worksurfing-navbar-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Aide <i class="fa fa-life-ring"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li>
+            <%= link_to "FAQ", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+          </li>
+          <li>
+            <%= link_to "Comment ça marche", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+          </li>
+          <li>
+            <%= link_to "Sécurité", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+          </li>
+        </ul>
        </li>
-      <li>
-        <%= link_to '#', :class =>"navbar-wagon-item worksurfing-navbar-link" do %>
-      Aide <i class="fa fa-life-ring"></i>
-        <% end %>
-       </li>
-       <li>
-        <div class="navbar-wagon-item navbar-wagon-link">
-            <%= link_to(current_user.first_name, user_path(current_user)) %>
-        </div>
+
+       <li class="dropdown">
+        <a href="" class="navbar-wagon-item worksurfing-navbar-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= current_user.first_name %>
+        </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>
+              <%= link_to "Profil", user_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+            </li>
+            <li>
+              <%= link_to "Réservations", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+            </li>
+            <li>
+              <%= link_to "Compte", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+            </li>
+            <li>
+              <%= link_to "Deconnexion", destroy_user_session_path, method: :delete , :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+            </li>
+          </ul>
       </li>
+
     </ul>
   </div>
-</div>
-

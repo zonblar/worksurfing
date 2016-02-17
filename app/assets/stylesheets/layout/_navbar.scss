@@ -147,10 +147,11 @@
   border: 1px solid #CCCCCC;
 }
 
-.worksurfing-navbar-link{
+.worksurfing-navbar-looged-in-link{
   color:black;
 }
-.worksurfing-navbar-link :hover{
+
+.worksurfing-navbar-looged-in-link :hover{
   color:black;
   opacity:0.8;
 }
@@ -165,4 +166,8 @@
 
 .worksurfing-home-navbar-link{
   color:white;
+}
+
+.black-items a {
+  color: black;
 }

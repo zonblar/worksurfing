@@ -2,10 +2,13 @@
 
 <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= card_photo %>');">
   <div class="card-category"><%= workspace.type_of_space %></div>
+  <div class="price-tag">
+    <p><%= workspace.price_per_week %> € per week </p>
+  </div>
   <div class="card-description">
     <p><%= workspace.title %></p>
     <!--     adding review here soon  -->
- </div>
+  </div>
   <img class="card-user avatar" src="user.jpg">
   <%= link_to "", workspace_path(workspace), { class: "card-link" } %>
 </div>

@@ -9,6 +9,7 @@
 @import "font-awesome";
 @import  "bootstrap-datepicker3";
 
+
 // Your CSS
 @import "layout/index";
 @import "components/index";
@@ -33,6 +34,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  heiht:100px;
   z-index: 150;
 
 }

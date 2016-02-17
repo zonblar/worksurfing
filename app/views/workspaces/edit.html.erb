@@ -1,0 +1,23 @@
+<div class="col-md-4 col-md-offset-4">
+<h1>Edit your workspace</h1>
+<%= simple_form_for @workspace do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :city, :id => "autocomplete" %>
+  <%= f.input :photos, as: :attachinary %>
+
+ <span> <%= f.input :price_per_day %>
+  <%= f.input :price_per_week %></span>
+  <%= f.input :type_of_space, :collection => @type_of_space %>
+  <%= f.input :rules %>
+  <p>Amenities</p>
+  <ul class="list-inline">
+  <li><%= f.input :bathroom %></li>
+  <li><%= f.input :printer %></li>
+  <li> <%= f.input :wifi %></li>
+   </ul>
+  <%= f.button :submit , :class => "text-center" %>
+<% end %>
+
+</div>

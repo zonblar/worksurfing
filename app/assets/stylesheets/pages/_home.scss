@@ -77,7 +77,7 @@ video#bgvid {
 }
 
 .container-explore{
-  background-image: url('background_place.jpg');
+  background-image: image-url('background_place.jpg');
   background-repeat: no-repeat;
 }
 
@@ -117,7 +117,7 @@ video#bgvid {
 }
 
 .container-meet{
-  background-image: url('background_work.jpg');
+  background-image: image-url('background_work.jpg');
   background-repeat: no-repeat;
   background-position: 90% 10%;
 }
@@ -150,6 +150,7 @@ video#bgvid {
   background-color: #ECF0F1;;
   margin-bottom: 150px;
 }
+
 
 #form1 {
 border-radius: 0px;
@@ -184,3 +185,4 @@ border:none;
 height:35px;
 margin-right: -4px;
 }
+

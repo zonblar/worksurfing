@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
   def create
     @workspace = Workspace.find(params[:workspace_id])
     @booking = Booking.new(booking_params)
-
+    @booking.user = current_user
     @booking.workspace = @workspace
     if @workspace.available?(@booking)
       @booking.save

@@ -8,7 +8,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="dashboard" href="#">Tableau de bord</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,9 +15,40 @@
 <% if current_page?(work_path(current_user)) %>
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to("Boite de réception", conversations_path) %></li>
+        <li> <%= link_to user_path(current_user), class: "navbar-brand", id:"dashboard" do %>
+           Tableau de bord
+        <% end %></li>
+       <li><%= link_to("Boite de réception", conversations_path) %></li>
 
         <li class="active">
+        <%= link_to work_path(current_user) do %>
+           Mes Workspaces
+        <% end %>
+       </li>
+
+        <li>
+        <%= link_to book_path(current_user) do %>
+           Mes réservations
+        <% end %>
+       </li>
+
+          <li>
+        <%= link_to edit_user_path(@user) do %>
+           Profil
+        <% end %>
+       </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    <% elsif current_page?(book_path(current_user)) %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <%= link_to user_path(current_user), class: "navbar-brand", id:"dashboard" do %>
+           Tableau de bord
+        <% end %></li>
+        <li><%= link_to("Boite de réception", conversations_path) %></li>
+
+        <li>
         <%= link_to work_path(current_user) do %>
            Mes Workspaces
         <% end %>
@@ -30,33 +60,99 @@
         <% end %>
        </li>
 
-
           <li>
-        <%= link_to user_path(current_user) do %>
+        <%= link_to edit_user_path(@user) do %>
            Profil
         <% end %>
        </li>
-
-
-        <li><a href="#">Mon compte</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 
+    <% elsif current_page?(conversations_path) %>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <%= link_to user_path(current_user), class: "navbar-brand", id:"dashboard" do %>
+           Tableau de bord
+        <% end %></li>
+        <li class="active"><%= link_to("Boite de réception", conversations_path) %></li>
 
+        <li>
+        <%= link_to work_path(current_user) do %>
+           Mes Workspaces
+        <% end %>
+       </li>
+
+        <li>
+        <%= link_to book_path(current_user) do %>
+           Mes réservations
+        <% end %>
+       </li>
+
+          <li>
+        <%= link_to edit_user_path(current_user) do %>
+           Profil
+        <% end %>
+       </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+    <% elsif current_page?(user_path(current_user)) %>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"> <%= link_to user_path(current_user), class: "navbar-brand", id:"dashboard" do %>
+           Tableau de bord
+        <% end %></li>
+        <li><%= link_to("Boite de réception", conversations_path) %></li>
+
+        <li>
+        <%= link_to work_path(current_user) do %>
+           Mes Workspaces
+        <% end %>
+       </li>
+
+        <li>
+        <%= link_to book_path(current_user) do %>
+           Mes réservations
+        <% end %>
+       </li>
+
+          <li>
+        <%= link_to edit_user_path(current_user) do %>
+           Profil
+        <% end %>
+       </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
 
     <% else %>
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li> <%= link_to user_path(current_user), class: "navbar-brand", id:"dashboard" do %>
+           Tableau de bord
+        <% end %></li>
         <li><%= link_to("Boite de réception", conversations_path) %></li>
-        <li><a href="#">Mes Workspaces</a></li>
-        <li><a href="#">Mes réservations</a></li>
-        <li class="active"><a href="#">Profil <span class="sr-only">(current)</span></a></li
-        >
-        <li><a href="#">Mon compte</a></li>
-      </ul>
-    </div><!-- /.n
-   <% end %>
 
+        <li>
+        <%= link_to work_path(current_user) do %>
+           Mes Workspaces
+        <% end %>
+       </li>
+
+        <li>
+        <%= link_to book_path(current_user) do %>
+           Mes réservations
+        <% end %>
+       </li>
+
+          <li class="active">
+        <%= link_to edit_user_path(@user) do %>
+           Profil
+        <% end %>
+       </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+   <% end %>
 
 
 

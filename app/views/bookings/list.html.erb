@@ -3,7 +3,9 @@
 <div class="container">
   <h2 class="text-center">Mes réservations</h2>
     <div class="col-md-offset-3 col-md-4">
+
         <% @bookings.each do |booking| %>
+
       <h2><%= booking.start_date %></h2>
           <% end %>
       </div>

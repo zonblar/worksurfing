@@ -23,17 +23,18 @@ gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'omniauth-facebook'
-gem 'bootstrap-datepicker-rails'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
+gem 'bootstrap-datepicker-rails', '~> 1.3', '>= 1.3.1.1'
 
 gem "typedjs-rails", "~> 1.0.3"
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-typed.js','>= 1.1.1'
 end
+
 gem "geocoder"
 gem "gmaps4rails"
 
@@ -54,5 +55,4 @@ end
 source "https://rails-assets.org" do
   gem 'rails-assets-lightbox'
   gem "rails-assets-underscore"
-
 end

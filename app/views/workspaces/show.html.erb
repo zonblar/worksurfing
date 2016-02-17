@@ -7,11 +7,32 @@
     <div class="col-md-8">
       <h1><%= @workspace.title %><br></h1>
       <p><%=@workspace.description%></p>
+         <%@workspace.availabilities.each do |availability| %>
+         <!-- <p><%=availability.start_date%> to <%=availability.end_date%></p> -->
+         <% end%>
+    </div>
+    <div class="col-md-3">
+    <h3>Book this workspace</h3>
+    <%= simple_form_for [@workspace, Booking.new] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
+        <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+        <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
+     <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+        <!-- Full photo gallery -->
+        <% if @workspace.photos? %>
+          <% @workspace.photos.each do |photo| %>
       <%@workspace.availabilities.each do |availability| %>
         <p><%=availability.start_date%> to <%=availability.end_date%></p>
       <% end%>
       <% if @workspace.photos? %>
         <% @workspace.photos.each do |photo| %>
+
           <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
           <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
 

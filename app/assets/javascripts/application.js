@@ -9,4 +9,5 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 //= require underscore
 //= require gmaps/google
+//= require bootstrap-datepicker
 //= require_tree .

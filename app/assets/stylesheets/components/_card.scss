@@ -5,8 +5,9 @@
   color: white;
   position: relative;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -41,7 +42,7 @@
 .card-link:hover{
   opacity: 0.1;
 }
-.wrapper-grey{
-  background: #F4F4F4;
-  margin-bottom: 100px;
+
+.wrapper-white{
+  background: white;
 }

@@ -1,6 +1,6 @@
 class WorkspacesController < ApplicationController
 
-  before_filter :disable_nav
+  # before_filter :disable_nav
 
   def show
     @workspace = Workspace.find(params[:id])

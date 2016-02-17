@@ -9,6 +9,6 @@
     <p><%= workspace.title %></p>
     <!--     adding review here soon  -->
   </div>
-  <img class="card-user avatar" src="user.jpg">
+  <%= cl_image_tag workspace.user.picture.path, class:"card-user avatar"%>
   <%= link_to "", workspace_path(workspace), { class: "card-link" } %>
 </div>

@@ -24,6 +24,11 @@
   bottom: 10px;
   left: 10px;
 }
+.price-tag {
+  position: absolute;
+  bottom: 60px;
+}
+
 .card-description h2 {
   font-size: 22px;
 }
@@ -45,4 +50,14 @@
 
 .wrapper-white{
   background: white;
+}
+
+.price-tag{
+  background-color: #4A4C4D;
+  opacity: 0.9;
+  padding: 15px;
+}
+
+.price-tag p {
+  margin: 0px;
 }

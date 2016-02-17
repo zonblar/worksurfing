@@ -34,7 +34,7 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-
+            <%= f.input :picture, as: :attachinary %>
             <%= f.input :first_name, label: "Prénom" %>
             <%= f.input :last_name, label: "Nom de famille" %>
             <%= f.input :email, required: true, autofocus: true %>

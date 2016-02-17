@@ -1,7 +1,13 @@
 class WorkspacesController < ApplicationController
 
   def index
-    @workspaces = Workspace.all
+    @workspaces = Workspace.where.not(latitude: nil)
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
+      marker.lat workspace.latitude
+      marker.lng workspace.longitude
+    end
   end
   def list
     @user = current_user
@@ -11,7 +17,7 @@ class WorkspacesController < ApplicationController
   def show
     @workspace = Workspace.find(params[:id])
     @alert_message = "You are viewing #{@workspace.title}"
-    @workspace_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
+    @workspace_coordinates = { lat: @workspace.latitude, lng: @workspace.longitude }
 
   end
 

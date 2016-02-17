@@ -1,4 +1,8 @@
 /* Main class */
+
+#logo {
+      margin: 20px;
+}
 .navbar-wagon {
   transition: all 0.3s ease;
   // position:absolute;
@@ -6,6 +10,7 @@
   left:0;
   right:0;
   z-index: 2;
+  height:70px;
 }
 
 /* Navbar vertical separators */
@@ -54,6 +59,7 @@
   font-size: 14px;
   padding-left: 20px;
   padding-right: 20px;
+      margin-top: 20px;
 }
 .navbar-wagon:hover {
   color: #da552f;
@@ -97,4 +103,66 @@
 
 .navbar-wagon ul li{
   display: inline-block;
+  color:black;
+}
+
+.navbar-items{
+    margin-right: 24px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color:black;
+}
+
+.navbar-wagon-search-btn {
+  line-height: 40px;
+  color: #E6E6E6;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 14px;
+  top: -2px;
+  z-index: 1;
+}
+.navbar-wagon-search-input {
+  flex: 0 1 300px;
+  transition: all 0.15s ease;
+  line-height: 40px;
+  font-weight: lighter;
+  color: #666666;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+    width: 600px;
+    text-decoration: none;
+    border-style: none;
+
+    left: 100px;
+    position: absolute;
+    top: 15px;
+}
+.navbar-wagon-search-input:focus  {
+  border: 1px solid #CCCCCC;
+}
+
+.worksurfing-navbar-link{
+  color:black;
+}
+.worksurfing-navbar-link :hover{
+  color:black;
+  opacity:0.8;
+}
+
+.navbar-home-items{
+    margin-right: 24px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color:white;
+}
+
+.worksurfing-home-navbar-link{
+  color:white;
 }

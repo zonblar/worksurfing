@@ -1,6 +1,25 @@
 class WorkspacesController < ApplicationController
 
+
   # before_filter :disable_nav
+
+  def index
+    @workspaces = Workspace.all
+  end
+  def list
+    @user = current_user
+    @workspaces = current_user.workspaces
+  end
+
+  def edit
+   @workspace = Workspace.find(params[:id])
+  end
+
+  def update
+    @workspace = Workspace.find(params[:id])
+    @workspace.update(workspace_params)
+    redirect_to workspace_path(@workspace)
+  end
 
   def show
     @workspace = Workspace.find(params[:id])
@@ -11,11 +30,15 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new
   end
 
+  def destroy
+     @workspace = Workspace.find(params[:id])
+      @workspace.destroy
+      redirect_to work_path
+  end
+
   def create
     @workspace = Workspace.new(workspace_params)
-
-    @user_id = current_user.id
-
+    @workspace.user = current_user
     if @workspace.save
       redirect_to new_workspace_availability_path(@workspace)
     else

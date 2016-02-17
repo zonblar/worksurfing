@@ -6,7 +6,7 @@
 .banner {
  background-repeat: no-repeat;
  background-size: cover;
- height: 90vh;
+ height: 84vh;
  color: white;
  position: relative;
 }
@@ -16,15 +16,16 @@
   bottom: 0;
   right: 0;
   left: 0;
-  padding-bottom: 30px;
+
   padding-top: 30px;
   position: absolute;
+  margin:0;
 }
 
 .banner-content{
   font-size: 14px;
   line-height: 1.43;
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
 .banner-text{
@@ -151,5 +152,37 @@ video#bgvid {
 }
 
 
+#form1 {
+border-radius: 0px;
+border:none;
+padding-right: 35px;
+padding-top: 10px;
+padding-bottom: 10px;
+margin-right: -5px;
+height:35px;
 
+}
+
+#form2{
+border-radius: 0px;
+border:none;
+padding-right: 25px;
+padding-top: 10px;
+padding-bottom: 10px;
+margin-right: -5px;
+margin-left: 0px;
+border-color: white;
+border:none;
+height:35px;
+
+}
+
+
+#form3{
+
+border-radius: 0px;
+border:none;
+height:35px;
+margin-right: -4px;
+}
 

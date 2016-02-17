@@ -12,3 +12,21 @@
   background: #F8F8FA;
   padding-left: 40px;
 }
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.room-type-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

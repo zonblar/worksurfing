@@ -25,6 +25,8 @@
 
 .body-wrapper {
   position: relative;
+  min-height:100%;
+
 }
 
 .footer-wrapper{
@@ -32,5 +34,74 @@
   left: 0;
   right: 0;
   z-index: 150;
+
 }
 
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.form-control{
+        -webkit-appearance:none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        margin: 0px;
+}
+
+select {
+  width: 200px !important;
+}
+
+select.custom {
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+border-radius: 2px;
+line-height:21px;
+    padding-top: 5px;
+
+}
+
+select.custom::-ms-expand {
+  display: none;
+}
+
+.divider-vertical1 {
+height: 70px;
+border-left: 0px solid #DCE0E0;
+border-right: 0.01px solid #DCE0E0;
+}
+
+#vertical1 {
+  position:absolute;
+ left:90px;
+}
+
+#vertical2 {
+  position:absolute;
+ right:315px;
+}
+
+#vertical3 {
+  position:absolute;
+ right:480px;
+}
+
+
+#vertical4 {
+  position:absolute;
+ right:200px;
+}
+
+#vertical5 {
+  position:absolute;
+ right:115px;
+}

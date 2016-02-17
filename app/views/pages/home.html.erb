@@ -1,5 +1,12 @@
 <!-- ######## NAVBAR ########### -->
-<%= render 'shared/navbar_logged_out'%>
+
+   <% if user_signed_in? %>
+      <%= render 'shared/navbar_home_logged_in'%>
+    <% else %>
+      <!-- Navbar Logged out -->
+      <%= render 'shared/navbar_logged_out'%>
+    <% end %>
+
 
 
 <!-- ######## BANNER ########### -->
@@ -17,16 +24,16 @@
   </div>
   <div class="banner-form text-center">
     <form class="navbar form-inline">
-      <input type="text" placeholder="Ville" class="form-control input-lg">
-      <input type="text" placeholder="Date" class="form-control input-lg">
-      <select class="form-control input-lg">
+      <input type="text" placeholder="Ville" id="form1" class="form-control input-lg">
+      <input type="text" placeholder="Date" id="form2" class="form-control input-lg">
+      <select class="form-control input-lg custom" id="form3">
         <option value="1">1 personne</option>
         <option value="2">2 personnes</option>
         <option value="3">3 personnes</option>
         <option value="3">4 personnes</option>
         <option value="3">5 personnes</option>
       </select>
-      <%= link_to "Rechercher", '', class: "btn btn-primary btn-lg" %><br>
+      <%= link_to "Rechercher", '', class: "btn btn-primary btn-lg", style: "height:35px;line-height: 11px;" %><br>
     </form>
   </div>
 </div>
@@ -206,5 +213,8 @@
     </div>
   </div>
 </div>
+ <div class="footer-wrapper">
+<%= render 'shared/footer' %>
+      </div>
 
 

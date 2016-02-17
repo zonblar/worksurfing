@@ -1,0 +1,11 @@
+<% page_header "Your Conversations" %>
+
+<p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
+
+<ul class="list-group">
+
+  <% @conversations.each do |conversation| %>
+    <h3><%= conversation.sender_id %></h3>
+   <% end %>
+</ul>
+

@@ -1,8 +1,15 @@
 class Workspace < ActiveRecord::Base
   mount_uploader :photo1, PhotoUploader
   has_many :bookings
+  has_many :availabilities
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  # def available?(booking)
+  #   self.availabilities.where("end_date > ?", booking.start_date)
+  # end
   has_many :availabilities, :dependent => :destroy
   belongs_to :user
+
 
   def available?(booking)
    output = true

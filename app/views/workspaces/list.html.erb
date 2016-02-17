@@ -1,6 +1,12 @@
 <div class="text-center"><h2>Mes workspaces</h2>
 <% @workspaces.each do |workspace| %>
 <h2><%= workspace.title %></h2>
+<p><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
+      Update Workspace
+        <% end %></p>
+
+         <p> <%= link_to "Delete", workspace_path(workspace), :confirm => "Are you sure?", :method => :delete %></p>
+
 <% end %>
 
 

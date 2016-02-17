@@ -30,11 +30,8 @@
     </div>
   </div>
 </div>
-
-
 </div>
 </div>
-
 
         <!-- Full photo gallery -->
         <% if @workspace.photos? %>
@@ -52,22 +49,6 @@
     </div>
 
 
-    <!-- Booking side of the page -->
-    <div class="hidden-xs col-md-4">
-      <h3>Book this workspace</h3>
-      <%= simple_form_for [@workspace, Booking.new] do |f| %>
-        <%= f.input :start_date , :class => 'form-control datepicker'%>
-        <%= f.input :end_date , :class => 'form-control datepicker'%>
-        <%= f.button :submit , :class => "text-center" %>
-      <% end %>
-
-      <div class="input-daterange input-group" id="datepicker">
-        <input type="text" class="input-sm form-control" name="start" />
-        <span class="input-group-addon">to</span>
-        <input type="text" class="input-sm form-control" name="end" />
-      </div>
-    </div>
-  </div>
 
 
 

@@ -74,7 +74,21 @@
 
       <!--       map side    -->
       <div class="hidden-xs col-sm-5 eye-mapper" style="padding-left: 0">
-      <%= image_tag "index_sample/google_map_screenshot_sample.png", {class: ""}%>
+      <div id="map" style="width: 100%; height: 645px;"></div>
+
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+          $(document).on('ready', function() {
+            handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function(){
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          })
+        <% end %>
+      <% end %>
+
 
         <!--       Need to be fixed (i.e. no scrolling allowed)   -->
 

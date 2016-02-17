@@ -35,6 +35,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-typed.js','>= 1.1.1'
 end
 gem "geocoder"
+gem "gmaps4rails"
+
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -51,4 +53,6 @@ end
 
 source "https://rails-assets.org" do
   gem 'rails-assets-lightbox'
+  gem "rails-assets-underscore"
+
 end

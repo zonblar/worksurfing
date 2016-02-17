@@ -7,4 +7,6 @@
 //= require lightbox
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
+//= require underscore
+//= require gmaps/google
 //= require_tree .

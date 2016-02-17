@@ -154,7 +154,6 @@ ActiveRecord::Schema.define(version: 20160216173530) do
     t.datetime "updated_at",     null: false
     t.string   "title"
     t.string   "photo1"
-    t.json     "photos"
   end
 
   add_foreign_key "availabilities", "workspaces"

@@ -33,9 +33,12 @@
           <p><%=@workspace.description%></p>
           <hr>
 
-          <% if @workspace.bathroom? || @workspace.bathroom? || @workspace.printer? %>
+
             <h3>Détails</h3>
             <ul class="list-unstyled">
+              <li>
+                <%=@workspace.seats%> places
+              </li>
               <li>
                 <% if @workspace.bathroom? %>
                   <i class="fa fa-male"></i>
@@ -54,7 +57,6 @@
               </li>
             </ul>
             <hr>
-          <% end %>
         </div>
         <div class="row">
 
@@ -77,8 +79,9 @@
       <!-- Post a review -->
         <div class="row">
           <hr>
+          <% if @workspace.reviews.count> 1 %>
           <h3>Commentaire(s)</h3>
-
+          <% end %>
           <ul> <% @workspace.reviews.each do |review| %>
             <li><strong>Commentaire:</strong> <%= review.content %></li>
             <li><strong>Rating:</strong><%= ('<i class="fa fa-star" style="color:yellow;"></i>' * review.rating).html_safe %> </li>

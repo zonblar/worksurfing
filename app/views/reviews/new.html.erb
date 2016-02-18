@@ -1,10 +1,12 @@
-<div class="form">
-    <h1>Rédiger un commentaire</h1>
+<div class="container" style="padding: 140px;">
+  <div class="form">
+      <h1>Rédiger un commentaire</h1>
 
 
-  <%= simple_form_for [@workspace, @review] do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating, collection: 0..5, prompt: "Combien d'étoiles?" %>
-    <%= f.button :submit %>
-  <% end %>
+    <%= simple_form_for [@workspace, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, collection: 0..5, prompt: "Combien d'étoiles?" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 </div>

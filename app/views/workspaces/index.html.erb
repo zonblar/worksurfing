@@ -37,7 +37,7 @@
               <hr>
               <div class="row">
                 <div class="col-xs-4">
-                  <strong>Fourchette de prix</strong>
+                  <strong>Prix moyen</strong>
                 </div>
                 <div class="price-range col-xs-8">
                   <p><%= number_field_tag :price_per_day, nil, :class => "slider slider-horizontal"%></p>
@@ -61,14 +61,14 @@
               </div>
               <br>
               <hr>
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-xs-3">
                   <strong>Intérêts</strong>
                 </div>
                 <div class="interest col-xs-3">
                   <p><%= text_field_tag :interest, nil, :placeholder => "Par exemple 'Design' " %></p>
                 </div>
-              </div>
+              </div> -->
               <br>
               <div class="search">
                 <p> <%= submit_tag "Affiner la recherche", class: "btn btn-primary btn-lg" %></p>

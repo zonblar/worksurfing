@@ -4,17 +4,27 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    @city = params[:city]
-    @nb_people = params[:nb_people]
-    if @city == "" || @nb_people == ""
-      @workspaces = Workspace.all
-    elsif @city == "" && @nb_people != ""
-      @workspaces = Workspace.where("nb_people >= ?", @nb_people)
-    elsif @city != "" && @nb_people == ""
-      @workspaces = Workspace.where("city = ? ", @city)
-    else
-      @workspaces = Workspace.where("city = ? AND nb_people >= ?", @city, @nb_people)
+    params_hash = { city: params[:city].downcase,
+                    nb_people: params[:nb_people],
+                    printer: params[:printer],
+                    bathroom: params[:bathroom],
+                    wifi: params[:wifi] }
+
+    search_query = ""
+    if  params[:price_per_day].to_i != 0
+      search_query << "(price_per_day BETWEEN (#{params[:price_per_day].to_i - (params[:price_per_day].to_i/10)})
+                                      AND (#{params[:price_per_day].to_i + (params[:price_per_day].to_i/10)}))"
     end
+
+    params_hash.each do |key, value|
+      search_query << " AND (#{key.to_s} = #{params_hash[key]}) " unless params_hash[key] = "" || params_hash[key] = nil
+    end
+
+    @workspaces = Workspace.search_for(search_query)
+
+    # AND (start_date <= #{params[:start_date]} AND end_date => #{params[:end_date]})
+    # add attributes to Workspace
+
     @workspaces = @workspaces.where.not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|

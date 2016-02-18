@@ -1,4 +1,6 @@
 class Workspace < ActiveRecord::Base
+  scoped_search :on => :city, :complete_value => :true
+  scoped_search on: [:nb_people, :price_per_day, :printer, :bathroom, :wifi]
   mount_uploader :photo1, PhotoUploader
   has_many :bookings
   has_many :availabilities

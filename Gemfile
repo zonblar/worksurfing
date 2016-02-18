@@ -30,7 +30,7 @@ gem 'will_paginate'
 gem 'bootstrap-datepicker-rails', '~> 1.3', '>= 1.3.1.1'
 
 gem 'bootstrap-slider-rails'
-
+gem "scoped_search"
 
 gem 'money-rails'
 

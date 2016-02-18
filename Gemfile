@@ -38,6 +38,8 @@ end
 gem "geocoder"
 gem "gmaps4rails"
 
+gem "letter_opener", group: :development
+gem 'gibbon'
 
 group :development, :test do
   gem 'binding_of_caller'

@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   GENDERS = ["Femme", "Homme"]
 
+  after_create :send_welcome_email
+
+  after_create :subscribe_to_newsletter
+
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -30,6 +34,16 @@ class User < ActiveRecord::Base
 
   def mailboxer_email(object)
     email
+  end
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
+  private
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletter.new(self).run
   end
 
 end

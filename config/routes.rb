@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
 
     end
+
     authenticate :user do
       resources :workspaces do
       resources :bookings, only: [:index, :create] do
         resources :payments, only: [:new, :create]
       end
       resources :availabilities, only: [:new, :create]
+      resources :reviews, only: [:new, :create]
     end
   end
   mount Attachinary::Engine => "/attachinary"

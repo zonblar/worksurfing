@@ -1,40 +1,120 @@
 <!-- main banner -->
-<div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>');">
+<div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>'); background-size: cover;">
 </div>
+
+
 <div class="container-workspace" style="padding-bottom:50px">
+  <div class="container">
   <!-- description side of the page -->
-  <div class="row">
-    <div class="col-md-4">
-      <h1><%= @workspace.title %><br></h1>
-      <p><%=@workspace.description%></p>
-    </div>
-    <div class="col-md-offset-4 col-md-4">
-    <h3>Book this workspace</h3>
-    <%= simple_form_for [@workspace, Booking.new] do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
-        <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
-        <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
-     <% end %>
-    </div>
-  </div>
-        <!-- Full photo gallery -->
-<div class="container">
-  <% if @workspace.photos? %>
-  <% @workspace.photos.each do |photo| %>
-    <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
-    <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
+    <div class="row">
 
-        <div class="row">
+      <div class="col-md-8">
 
-          <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
-          <!-- lightbox feature -->
-          <a href='<%= gallery_size %>' data-lightbox="roadtrip">
-            <%= sample_size %>
-          </a>
+        <div class="parent-flex">
+
+          <div class="owner-details text-center">
+            <%= link_to user_path(@workspace.user), {style: "text-decoration: none;"} do %>
+              <%= cl_image_tag @workspace.user.picture.path, class:"avatar-super-large"%>
+              <p><%= @workspace.user.first_name %></p>
+          <% end %>
+          </div>
+
+          <div class="workplace-headlines">
+            <h1 style="margin-top: 0;"><%= @workspace.title %></h1>
+            <p><%= @workspace.address %></p>
+            <p><%= @workspace.city %></p>
+          </div>
 
         </div>
+        <hr>
+
+        <h3>A propos de cet espace</h3>
+        <p><%=@workspace.description%></p>
+        <hr>
+
+        <% if @workspace.bathroom? || @workspace.bathroom? || @workspace.printer? %>
+          <h3>Détails</h3>
+          <ul class="list-unstyled">
+            <li>
+              <% if @workspace.bathroom? %>
+                <i class="fa fa-male"></i>
+                <i class="fa fa-female"> Toilette</i>
+              <% end %>
+            </li>
+            <li>
+              <% if @workspace.wifi? %>
+                <i class="fa fa-wifi"> Wifi</i>
+              <% end %>
+            </li>
+            <li>
+              <% if @workspace.printer? %>
+                <i class="fa fa-print"> Imprimante</i>
+              <% end %>
+            </li>
+          </ul>
+          <hr>
+        <% end %>
+
+      <!-- Full photo gallery -->
+        <% if @workspace.photos.count > 1 %>
+          <h3>Plus de photos</h3>
+          <% @workspace.photos.each do |photo| %>
+            <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
+            <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
+            <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
+              <!-- lightbox feature -->
+              <a href='<%= gallery_size %>' data-lightbox="roadtrip">
+                <%= sample_size %>
+              </a>
+            </div>
+          <% end %>
+        <% end %>
+        <hr>
+
+      <!-- Post a review -->
+        <h2>Commentaire(s)</h2>
+
+        <ul> <% @workspace.reviews.each do |review| %>
+          <li><strong>Commentaire:</strong> <%= review.content %></li>
+          <li><strong>Rating:</strong><%= ('<i class="fa fa-star" style="color:yellow;"></i>' * review.rating).html_safe %> </li>
+          <hr>
+          <% end %>
+        </ul>
+
+        <% @workspace.bookings.each do |booking|  %>
+          <% if booking.user == current_user %>
+            <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-md-4">
+
+      <!-- Pricing recap -->
+      <h3>Pricing</h3>
+      <p><%= @workspace.price_per_day %> € par jour</p>
+      <p><%= @workspace.price_per_week %> € par semaine</p>
+
+      <!-- Booking date picker -->
+      <div class="booking-module">
+        <h3>Réserver cet espace</h3>
+          <%= simple_form_for [@workspace, Booking.new] do |f| %>
+              <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
+              <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+              <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
+          <% end %>
+      </div>
+
+      <!-- Send a private message to the owner -->
+      <div class="private-message text-center">
+        <% unless current_user == @workspace.user %>
+          <i class="fa fa-envelope-o fa-2x"></i>
+          <%= link_to "Contact the owner", new_message_path(:user => @workspace.user.id), class: "btn btn-large btn-primary"%>
+         <% end %>
+      </div>
+
+      </div>
+
     </div>
-  <% end %>
-   <% end %>
-   </div>
+  </div>
 </div>

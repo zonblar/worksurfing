@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160218164039) do
 
   # These are extensions that must be enabled in order to support this database
@@ -48,8 +49,12 @@ ActiveRecord::Schema.define(version: 20160218164039) do
     t.boolean  "accepted"
     t.integer  "workspace_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "state"
+    t.integer  "amount_cents",  default: 0, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "workspace_sku"
+    t.json     "payment"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -108,6 +113,16 @@ ActiveRecord::Schema.define(version: 20160218164039) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "rating",       default: 0
+    t.integer  "workspace_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "reviews", ["workspace_id"], name: "index_reviews_on_workspace_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -150,8 +165,10 @@ ActiveRecord::Schema.define(version: 20160218164039) do
     t.integer  "price_per_week"
     t.string   "type_of_space"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "price_cents",    default: 0, null: false
+    t.string   "sku"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "title"
     t.string   "photo1"
     t.float    "latitude"
@@ -165,4 +182,5 @@ ActiveRecord::Schema.define(version: 20160218164039) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "reviews", "workspaces"
 end

@@ -14,9 +14,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.workspace = @workspace
+    @booking.state = 'pending'
     if @workspace.available?(@booking)
       @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to new_workspace_booking_payment_path(@workspace, @booking)
     else
       redirect_to workspace_path(@workspace)
       flash[:alert]

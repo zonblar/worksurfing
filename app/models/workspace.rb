@@ -9,7 +9,9 @@ class Workspace < ActiveRecord::Base
   # end
   has_many :availabilities, :dependent => :destroy
   belongs_to :user
+  monetize :price_cents
 
+  has_many :reviews, dependent: :destroy
 
   def available?(booking)
    output = true

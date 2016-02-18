@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   GENDERS = ["Femme", "Homme"]
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   # after_create :subscribe_to_newsletter
 

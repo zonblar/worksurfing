@@ -11,4 +11,6 @@
 //= require gmaps/google
 //= require bootstrap-datepicker
 //= require bootstrap-slider
+//= require jquery.image-select
+//= require messages
 //= require_tree .

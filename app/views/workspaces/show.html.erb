@@ -90,9 +90,13 @@
       </div>
 
       <!-- Send a private message to the owner -->
-      <% unless current_user == @workspace.user %>
-       <%= link_to "Contact the owner", new_message_path(:user => @workspace.user.id), class: "btn btn-large btn-primary" %>
-       <% end %>
+      <div class="private-message text-center">
+        <% unless current_user == @workspace.user %>
+          <i class="fa fa-envelope-o fa-2x"></i>
+          <%= link_to "Contact the owner", new_message_path(:user => @workspace.user.id), class: "btn btn-large btn-primary"%>
+         <% end %>
+      </div>
+
       </div>
 
     </div>

@@ -10,6 +10,7 @@ class Workspace < ActiveRecord::Base
   has_many :availabilities, :dependent => :destroy
   belongs_to :user
 
+  has_many :reviews, dependent: :destroy
 
   def available?(booking)
    output = true

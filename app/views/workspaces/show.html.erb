@@ -68,13 +68,11 @@
               </a>
             </div>
           <% end %>
-        <hr>
         <% end %>
         <hr>
 
       <!-- Post a review -->
         <h2>Commentaire(s)</h2>
-        <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
 
         <ul> <% @workspace.reviews.each do |review| %>
           <li><strong>Commentaire:</strong> <%= review.content %></li>
@@ -83,6 +81,11 @@
           <% end %>
         </ul>
 
+        <% @workspace.bookings.each do |booking|  %>
+          <% if booking.user == current_user %>
+            <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+          <% end %>
+        <% end %>
       </div>
 
       <div class="col-md-4">

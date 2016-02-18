@@ -26,67 +26,74 @@
           </div>
 
         </div>
-        <hr>
-
-        <h3>A propos de cet espace</h3>
-        <p><%=@workspace.description%></p>
-        <hr>
-
-        <% if @workspace.bathroom? || @workspace.bathroom? || @workspace.printer? %>
-          <h3>Détails</h3>
-          <ul class="list-unstyled">
-            <li>
-              <% if @workspace.bathroom? %>
-                <i class="fa fa-male"></i>
-                <i class="fa fa-female"> Toilette</i>
-              <% end %>
-            </li>
-            <li>
-              <% if @workspace.wifi? %>
-                <i class="fa fa-wifi"> Wifi</i>
-              <% end %>
-            </li>
-            <li>
-              <% if @workspace.printer? %>
-                <i class="fa fa-print"> Imprimante</i>
-              <% end %>
-            </li>
-          </ul>
+        <div class="row">
           <hr>
-        <% end %>
+
+          <h3>A propos de cet espace</h3>
+          <p><%=@workspace.description%></p>
+          <hr>
+
+          <% if @workspace.bathroom? || @workspace.bathroom? || @workspace.printer? %>
+            <h3>Détails</h3>
+            <ul class="list-unstyled">
+              <li>
+                <% if @workspace.bathroom? %>
+                  <i class="fa fa-male"></i>
+                  <i class="fa fa-female"> Toilette</i>
+                <% end %>
+              </li>
+              <li>
+                <% if @workspace.wifi? %>
+                  <i class="fa fa-wifi"> Wifi</i>
+                <% end %>
+              </li>
+              <li>
+                <% if @workspace.printer? %>
+                  <i class="fa fa-print"> Imprimante</i>
+                <% end %>
+              </li>
+            </ul>
+            <hr>
+          <% end %>
+        </div>
+        <div class="row">
 
       <!-- Full photo gallery -->
-        <% if @workspace.photos.count > 1 %>
-          <h3>Plus de photos</h3>
-          <% @workspace.photos.each do |photo| %>
-            <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
-            <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
-            <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
-              <!-- lightbox feature -->
-              <a href='<%= gallery_size %>' data-lightbox="roadtrip">
-                <%= sample_size %>
-              </a>
-            </div>
+          <% if @workspace.photos.count > 1 %>
+            <h3>Plus de photos</h3>
+            <% @workspace.photos.each do |photo| %>
+              <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
+              <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
+              <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
+                <!-- lightbox feature -->
+                <a href='<%= gallery_size %>' data-lightbox="roadtrip">
+                  <%= sample_size %>
+                </a>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-        <hr>
+        </div>
 
       <!-- Post a review -->
-        <h2>Commentaire(s)</h2>
-
-        <ul> <% @workspace.reviews.each do |review| %>
-          <li><strong>Commentaire:</strong> <%= review.content %></li>
-          <li><strong>Rating:</strong><%= ('<i class="fa fa-star" style="color:yellow;"></i>' * review.rating).html_safe %> </li>
+        <div class="row">
           <hr>
-          <% end %>
-        </ul>
+          <h3>Commentaire(s)</h3>
 
-        <% @workspace.bookings.each do |booking|  %>
-          <% if booking.user == current_user %>
-            <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+          <ul> <% @workspace.reviews.each do |review| %>
+            <li><strong>Commentaire:</strong> <%= review.content %></li>
+            <li><strong>Rating:</strong><%= ('<i class="fa fa-star" style="color:yellow;"></i>' * review.rating).html_safe %> </li>
+            <hr>
+            <% end %>
+          </ul>
+
+          <% @workspace.bookings.each do |booking|  %>
+            <% if booking.user == current_user %>
+              <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
+
 
       <div class="col-md-4">
 

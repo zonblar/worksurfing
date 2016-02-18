@@ -4,6 +4,7 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
+    @search_term = params[:search_term]
     @workspaces = Workspace.where.not(latitude: nil)
 
     # Let's DYNAMICALLY build the markers for the view.

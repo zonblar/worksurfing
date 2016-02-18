@@ -15,7 +15,7 @@ class Workspace < ActiveRecord::Base
    output = true
    self.availabilities.each do |availability|
 
-      if (booking.end_date <= availability.start_date || booking.end_date >= availability.end_date || booking.start_date < availability.start_date)
+      if (booking.end_date.to_datetime <= availability.start_date.to_datetime || booking.end_date.to_datetime >= availability.end_date.to_datetime || booking.start_date.to_datetime < availability.start_date.to_datetime)
         output = false
       end
     end

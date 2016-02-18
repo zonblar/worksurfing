@@ -8,5 +8,9 @@
   <% @conversations.each do |conversation| %>
     <h3><%= conversation.sender_id %></h3>
    <% end %>
+
+   <% @list_conv.each do |conv| %>
+    <h3><%= conv.subject %></h3>
+   <% end %>
 </ul>
 

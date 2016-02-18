@@ -4,8 +4,8 @@ class ConversationsController < ApplicationController
     before_action :get_conversation, except: [:index]
 
   def index
+    @list_conv = current_user.mailbox.conversations
     @conversations = @mailbox.inbox
-
   end
 
   def show

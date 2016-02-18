@@ -1,7 +1,8 @@
 <% page_header "Conversation" %>
 
 <p>Chatting with
-  <%= render 'conversations/participants', conversation: @conversation %>
+  <%= @conversation.participants.first.first_name %>
+
 </p>
 
 <div class="panel panel-default">

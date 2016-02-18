@@ -1,40 +1,47 @@
 <!-- main banner -->
-<div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>');">
+<div class="banner-workspace" style="background-image: url('<%= cl_image_path @workspace.photos.first&.path %>'); background-size: cover;">
 </div>
+
 <div class="container-workspace" style="padding-bottom:50px">
+  <div class="container">
   <!-- description side of the page -->
-  <div class="row">
-    <div class="col-md-4">
-      <h1><%= @workspace.title %><br></h1>
-      <p><%=@workspace.description%></p>
-    </div>
-    <div class="col-md-offset-4 col-md-4">
-    <h3>Book this workspace</h3>
-    <%= simple_form_for [@workspace, Booking.new] do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
-        <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
-        <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
-     <% end %>
+    <div class="row">
+
+      <div class="col-md-8">
+        <h1><%= @workspace.title %></h1>
+        <h2>A propos de cet espace</h2>
+        <p><%=@workspace.description%></p>
+        <h3>Détails</h3>
+        <p><Toilette></p>
+        <p><Wifi></p>
+        <p><%=@workspace.description%></p>
+      <!-- Full photo gallery -->
+
+        <% @workspace.photos.each do |photo| %>
+          <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
+          <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
+          <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
+            <!-- lightbox feature -->
+            <a href='<%= gallery_size %>' data-lightbox="roadtrip">
+              <%= sample_size %>
+            </a>
+          </div>
+        <% end %>
+
+
+      </div>
+      <!-- Booking date picker -->
+      <div class="col-md-4">
+        <h3>Book this workspace</h3>
+        <%= simple_form_for [@workspace, Booking.new] do |f| %>
+            <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
+            <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+            <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+
     </div>
   </div>
-        <!-- Full photo gallery -->
-<div class="container">
-  <% if @workspace.photos? %>
-  <% @workspace.photos.each do |photo| %>
-    <% sample_size = cl_image_tag photo.path, width: 217, height: 141, crop: :fill %>
-    <% gallery_size = cl_image_path photo.path, width: 868, height: 564, crop: :fill %>
-
-        <div class="row">
-
-          <div class="col-xs-6 col-sm-4" style="margin-bottom: 15px">
-          <!-- lightbox feature -->
-          <a href='<%= gallery_size %>' data-lightbox="roadtrip">
-            <%= sample_size %>
-          </a>
-
-        </div>
-    </div>
-  <% end %>
-   <% end %>
-   </div>
 </div>
+
+

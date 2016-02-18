@@ -13,8 +13,10 @@
         <div class="parent-flex">
 
           <div class="owner-details text-center">
-            <%= cl_image_tag @workspace.user.picture.path, class:"avatar-super-large"%>
-            <p><%= @workspace.user.first_name %></p>
+            <%= link_to user_path(@workspace.user), {style: "text-decoration: none;"} do %>
+              <%= cl_image_tag @workspace.user.picture.path, class:"avatar-super-large"%>
+              <p><%= @workspace.user.first_name %></p>
+          <% end %>
           </div>
 
           <div class="workplace-headlines">

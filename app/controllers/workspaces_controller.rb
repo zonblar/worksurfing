@@ -4,11 +4,18 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    @result = params[:city]
-    # @nb_people = params[:nb_people]
-    @workspaces = Workspace.where(city: @result)
-    # , nb_people: @nb_people)
-    # not(latitude: nil)
+    @city = params[:city]
+    @nb_people = params[:nb_people]
+    if @city == "" || @nb_people == ""
+      @workspaces = Workspace.all
+    elsif @city == "" && @nb_people != ""
+      @workspaces = Workspace.where("nb_people >= ?", @nb_people)
+    elsif @city != "" && @nb_people == ""
+      @workspaces = Workspace.where("city = ? ", @city)
+    else
+      @workspaces = Workspace.where("city = ? AND nb_people >= ?", @city, @nb_people)
+    end
+    @workspaces = @workspaces.where.not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
       marker.lat workspace.latitude

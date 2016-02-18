@@ -48,8 +48,12 @@ ActiveRecord::Schema.define(version: 20160218152732) do
     t.boolean  "accepted"
     t.integer  "workspace_id"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "state"
+    t.integer  "amount_cents",  default: 0, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "workspace_sku"
+    t.json     "payment"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -160,8 +164,10 @@ ActiveRecord::Schema.define(version: 20160218152732) do
     t.integer  "price_per_week"
     t.string   "type_of_space"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "price_cents",    default: 0, null: false
+    t.string   "sku"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "title"
     t.string   "photo1"
     t.float    "latitude"

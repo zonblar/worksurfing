@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
@@ -6,9 +8,12 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
 
     end
-  authenticate :user do
-    resources :workspaces do
-      resources :bookings, only: [:index, :create]
+
+    authenticate :user do
+      resources :workspaces do
+      resources :bookings, only: [:index, :create] do
+        resources :payments, only: [:new, :create]
+      end
       resources :availabilities, only: [:new, :create]
       resources :reviews, only: [:new, :create]
     end

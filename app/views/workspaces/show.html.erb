@@ -68,16 +68,18 @@
               </a>
             </div>
           <% end %>
+        <hr>
         <% end %>
         <hr>
 
       <!-- Post a review -->
         <h2>Commentaire(s)</h2>
-
-        <%= link_to 'Write a new review', new_workspace_review_path(@workspace) %>
+        <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
 
         <ul> <% @workspace.reviews.each do |review| %>
-          <li> <%= review.content %> | Rating:<%='<i class="fa fa-star"></i>' * review.rating %> </li>
+          <li><strong>Commentaire:</strong> <%= review.content %></li>
+          <li><strong>Rating:</strong><%= ('<i class="fa fa-star" style="color:yellow;"></i>' * review.rating).html_safe %> </li>
+          <hr>
           <% end %>
         </ul>
 

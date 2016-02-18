@@ -9,12 +9,32 @@
 
       <div class="col-md-8">
         <h1><%= @workspace.title %></h1>
+        <p><%= @workspace.address %></p>
+        <p><%= @workspace.city %></p>
+        <hr>
         <h2>A propos de cet espace</h2>
         <p><%=@workspace.description%></p>
+        <hr>
         <h3>Détails</h3>
-        <p><Toilette></p>
-        <p><Wifi></p>
-        <p><%=@workspace.description%></p>
+        <ul class="list-unstyled">
+          <li>
+            <% if @workspace.bathroom? %>
+              <i class="fa fa-male"></i>
+              <i class="fa fa-female"> Toilette</i>
+            <% end %>
+          </li>
+          <li>
+            <% if @workspace.wifi? %>
+              <i class="fa fa-wifi"> Wifi</i>
+            <% end %>
+          </li>
+          <li>
+            <% if @workspace.printer? %>
+              <i class="fa fa-print"> Imprimante</i>
+            <% end %>
+          </li>
+        </ul>
+        <hr>
       <!-- Full photo gallery -->
 
         <% @workspace.photos.each do |photo| %>

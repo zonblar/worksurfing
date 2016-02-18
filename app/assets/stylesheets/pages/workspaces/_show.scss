@@ -9,6 +9,26 @@
   padding-left: 40px;
 }
 
+.parent-flex {
+  display: flex;
+  align-items: center;
+  padding-top: 23px;
+  justify-content: space-between;
+}
+
+.parent-flex p {
+  margin: 0;
+}
+
+.owner-details {
+  flex: 0 0 15%;
+  margin-right: 25px;
+}
+
+.workplace-headlines {
+  flex: 1;
+}
+
 .date-filter {
   display: flex;
   align-items: center;

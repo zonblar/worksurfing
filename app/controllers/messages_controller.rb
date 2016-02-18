@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     @recipient = User.find_by(id: params[:user])
     conversation= current_user.send_message(@recipient, params[:body], params[:subject])
     flash[:success] = "Message has been sent!"
-    redirect_to conversations_path
+    redirect_to conversations_path(box: "sent")
+
   end
 end

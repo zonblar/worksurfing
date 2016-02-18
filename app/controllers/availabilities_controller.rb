@@ -1,7 +1,7 @@
 class AvailabilitiesController < ApplicationController
 
   def new
-     @workspace = Workspace.find(params[:workspace_id])
+    @workspace = Workspace.find(params[:workspace_id])
     @availability = Availability.new
   end
 

@@ -28,7 +28,12 @@ gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails', '~> 1.3', '>= 1.3.1.1'
+
+gem 'bootstrap-slider-rails'
+
+
 gem 'money-rails'
+
 gem "typedjs-rails", "~> 1.0.3"
 gem 'stripe'
 

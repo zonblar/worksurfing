@@ -4,7 +4,7 @@
 
 
     <%= simple_form_for [@workspace, @review] do |f| %>
-      <%= f.input :content %>
+      <%= f.input :content, label: "Description", placeholder: "Vous pouvez écrire ici..."  %>
       <%= f.input :rating, collection: 0..5, prompt: "Combien d'étoiles?" %>
       <%= f.button :submit %>
     <% end %>

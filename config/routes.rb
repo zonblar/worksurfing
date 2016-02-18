@@ -14,14 +14,17 @@ Rails.application.routes.draw do
   end
   mount Attachinary::Engine => "/attachinary"
 
-  resources :messages, only: [:new, :create]
-
-
   resources :conversations, only: [:index, :show, :destroy] do
-  member do
-    post :reply
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
   end
-end
+  resources :messages, only: [:new, :create]
     get 'users/:id/workspaces', to: 'workspaces#list', as: 'work'
     get 'users/:id/bookings', to: 'bookings#list', as: 'book'
 end

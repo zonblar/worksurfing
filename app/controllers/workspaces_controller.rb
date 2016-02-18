@@ -10,6 +10,7 @@ class WorkspacesController < ApplicationController
     # , nb_people: @nb_people)
     # not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
+    @workspaces = Workspace.all
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
       marker.lat workspace.latitude
       marker.lng workspace.longitude

@@ -30,6 +30,7 @@ gem 'will_paginate'
 gem 'bootstrap-datepicker-rails', '~> 1.3', '>= 1.3.1.1'
 gem 'money-rails'
 gem "typedjs-rails", "~> 1.0.3"
+gem 'stripe'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-typed.js','>= 1.1.1'

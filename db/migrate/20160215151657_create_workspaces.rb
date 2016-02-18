@@ -14,6 +14,8 @@ class CreateWorkspaces < ActiveRecord::Migration
       t.integer :price_per_week
       t.string :type_of_space
       t.references :user
+      t.monetize :price, currency: { present: false }
+      t.string :sku
 
       t.timestamps null: false
     end

@@ -4,9 +4,11 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    @search_term = params[:search_term]
-    @workspaces = Workspace.where.not(latitude: nil)
-
+    @result = params[:city]
+    # @nb_people = params[:nb_people]
+    @workspaces = Workspace.where(city: @result)
+    # , nb_people: @nb_people)
+    # not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
       marker.lat workspace.latitude
@@ -17,6 +19,10 @@ class WorkspacesController < ApplicationController
   def list
     @user = current_user
     @workspaces = current_user.workspaces
+  end
+
+  def advanced_search
+
   end
 
   def edit

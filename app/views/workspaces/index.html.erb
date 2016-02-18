@@ -4,32 +4,75 @@
 
       <!--       workspace listing side    -->
       <div class="col-xs-12 col-sm-7" style="padding-right: 0">
-
         <div class="workspace-listing">
-
           <div class="workspace-filters filter-container">
-
-            <div class="date-filter">
-              <p>Dates</p>
-              <!--       Reference to the date picker    -->
-              <%= image_tag "index_sample/date_sample.png", {class: ""}%>
-            </div>
-
-            <hr>
-
-            <div class="room-type-filter">
-              <p>Room Type</p>
-              <%= image_tag "index_sample/room_type_sample.png", {class: ""}%>
-
-            </div>
-
-            <hr>
-
-            <div class="price-filter">
-              <p>Price Range</p>
-              <%= image_tag "index_sample/price_range_sample.png", {class: ""}%>
-            </div>
-
+            <%= form_tag(workspaces_path, :method => "get", id: "search-form", class: "navbar form-inline") do %>
+              <hr>
+              <div class="row">
+                <div class="col-xs-1">
+                  <strong>Ville</strong>
+                </div>
+                <div class="city col-xs-10">
+                  <%= text_field_tag :city, 'Paris', :prompt => "Ville", :class => "form-control"%>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <div class="row">
+                  <div class='col-xs-1'>
+                    <strong>Dates</strong>
+                  </div>
+                  <div class="start_date col-xs-3">
+                    <p><%= date_field_tag :start_date, :class => "form-control"%></p>
+                  </div>
+                  <div class="end_date col-xs-3">
+                    <p><%= date_field_tag :end_date, :class => "form-control" %></p>
+                  </div>
+                  <div class="nb_people col-xs-3">
+                    <p><%= select_tag :nb_people, options_for_select(1..10), :prompt => "Nombre de personnes", :class => "form-control" %></p>
+                  </div>
+              </div>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-xs-4">
+                  <strong>Fourchette de prix</strong>
+                </div>
+                <div class="price-range col-xs-8">
+                  <p><%= number_field_tag :price_per_day, nil, :class => "slider slider-horizontal"%></p>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-xs-3">
+                  <strong>Equipements</strong>
+                </div>
+                <div class="equipements col-xs-3">
+                  <p>Imprimante <%= check_box_tag :printer, 'printer', false %></p>
+                </div>
+                <div class="equipements col-xs-3">
+                  <p>Salle de bain <%= check_box_tag :bathroom, 'bathroom', false %></p>
+                </div>
+                <div class="equipements col-xs-3">
+                  <p>Wifi <%= check_box_tag :wifi, 'wifi', false %></p>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <div class="row">
+                <div class="col-xs-3">
+                  <strong>Intérêts</strong>
+                </div>
+                <div class="interest col-xs-3">
+                  <p><%= text_field_tag :interest, nil, :placeholder => "Par exemple 'Design' " %></p>
+                </div>
+              </div>
+              <br>
+              <div class="search">
+                <p> <%= submit_tag "Affiner la recherche", class: "btn btn-primary btn-lg" %></p>
+              </div>
+            <% end %>
           </div>
           <div class="workspace-cards-listing">
             <div class="wrapper" style="background: #F5F5F5">

@@ -10,4 +10,5 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-datepicker
+//= require bootstrap-slider
 //= require_tree .

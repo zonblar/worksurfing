@@ -14,10 +14,19 @@
       <% end %>
 
       <div style="padding:20px;">
-      <%= link_to edit_workspace_path , :class =>"btn btn-primary" do %>
-          Actualiser
-      <% end %>
-      <%= link_to "Supprimer", workspace_path(workspace), :class =>"btn btn-primary", :confirm => "Are you sure?", :method => :delete %>
+        <%= link_to edit_workspace_path , :class =>"btn btn-primary" do %>
+            Actualiser
+        <% end %>
+        <%= link_to "Supprimer", workspace_path(workspace), :class =>"btn btn-primary", :confirm => "Are you sure?", :method => :delete %>
+        <% if workspace.listed %>
+          <%= link_to workspace_listed_path(workspace), class: "btn btn-success", style: "margin: 20px;" do %>
+                    Délister
+          <% end %>
+        <% else %>
+          <%= link_to workspace_unlisted_path(workspace), class: "btn btn-success", style: "margin: 20px;" do %>
+                    Lister
+          <% end %>
+        <% end %>
       </div>
     </div>
 

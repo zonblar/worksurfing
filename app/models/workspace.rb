@@ -12,6 +12,11 @@ class Workspace < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  validates :title, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :price_per_day, presence: true
+
 
   # def available?(booking)
   #  output = true

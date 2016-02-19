@@ -91,13 +91,15 @@
             <% end %>
           </ul>
 
+         <% bookers = [] %>
           <% @workspace.bookings.each do |booking|  %>
-            <% if booking.user == current_user %>
-              <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
-            <% end %>
+            <% bookers << booking.user %>
           <% end %>
-        </div>
+          <% if bookers.include? current_user %>
+            <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+          <% end %>
       </div>
+    </div>
 
 
       <div class="col-md-4">

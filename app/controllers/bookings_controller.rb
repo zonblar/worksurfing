@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
       redirect_to workspace_path(@workspace)
       flash[:alert]
     end
-
   end
 
   def list

@@ -8,11 +8,7 @@
 
       <!-- left column -->
       <div class="col-xs-12 col-md-4">
-        <%= link_to workspace_path(booking) do %>
-          <h2> <%= booking.workspace.title %></h2>
-          <%= cl_image_tag booking.workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
-        <% end %>
-
+        <%= render "shared/card", workspace: booking.workspace %>
       </div>
 
       <!-- right column -->

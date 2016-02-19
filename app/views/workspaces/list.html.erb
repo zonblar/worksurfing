@@ -40,8 +40,8 @@
 
           <!-- Booking details -->
           <div class="workplace-headlines">
-            <p><strong>Du: </strong><%= booking.start_date %></p>
-            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.to_datetime.strftime(%d %m %y) %></p>
+            <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
+            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
             <p><strong>Status: </strong><%= booking.status %></p>
           </div>
 

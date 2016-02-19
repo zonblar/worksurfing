@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
   def list
     @user = current_user
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(created_at: :desc)
   end
 
   def validate

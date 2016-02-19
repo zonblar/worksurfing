@@ -20,7 +20,7 @@
             <%= link_to "Workspaces", work_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
           </li>
           <li>
-            <%= link_to "Tableau de bord", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+            <%= link_to "Tableau de bord", user_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
           </li>
         </ul>
        </li>
@@ -57,7 +57,7 @@
               <%= link_to "Profil", user_path(current_user), :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
             </li>
             <li>
-              <%= link_to "Réservations", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
+              <%= link_to "Réservations", book_path(current_user),:class =>"navbar-wagon-item worksurfing-home-navbar-link"%>
             </li>
             <li>
               <%= link_to "Compte", :class =>"navbar-wagon-item worksurfing-home-navbar-link"%>

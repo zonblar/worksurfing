@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   mount Attachinary::Engine => "/attachinary"
-
   get 'payments/new'
 
   resources :bookings do

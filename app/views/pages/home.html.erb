@@ -29,7 +29,7 @@
       <h4>Trouvez un espace de travail, échangez avec des gens cools, près de chez vous</h4>
       <span class="element"></span>
     </div>
-      <%= link_to "Publier mon Workspace",'', class: "btn-transparent" %>
+      <%= link_to "Publier mon Workspace", new_workspace_path, class: "btn-transparent" %>
   </div>
   <div class="banner-form text-center">
      <%= form_tag(workspaces_path, :method => "get", id: "search-form", class: "navbar form-inline") do %>

@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <h3>Réservation du workspace <%= @booking.workspace.title %></h3>
-     <h4>Du <%= @booking.start_date %> au <%= @booking.end_date %></h4>
+     <h4>Du <%= @booking.start_date.strftime("%d %m %y") %> au <%= @booking.end_date.strftime("%d %m %y") %></h4>
     <%= form_tag workspace_booking_payments_path(@booking.workspace, @booking) do %>
         <label class="amount">
           <span>Montant à payer: <%= humanized_money_with_symbol(@booking.amount) %></span>

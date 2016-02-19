@@ -1,17 +1,25 @@
-<h1>Booking of workspace <%= @booking.workspace.title %></h1>
-<%= form_tag workspace_booking_payments_path(@booking.workspace, @booking) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
-
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Booking"
-    data-description="Workspace <%= @booking.workspace.title %>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="EUR"></script>
-
-<% end %>
+<div class="container">
+  <div class="payment-form">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <h3>Réservation du workspace <%= @booking.workspace.title %></h3>
+     <h4>Du <%= @booking.start_date %> au <%= @booking.end_date %></h4>
+    <%= form_tag workspace_booking_payments_path(@booking.workspace, @booking) do %>
+        <label class="amount">
+          <span>Montant à payer: <%= humanized_money_with_symbol(@booking.amount) %></span>
+        </label>
+        <br>
+        <span>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="My Booking"
+        data-description="Workspace <%= @booking.workspace.title %>"
+        data-amount="<%= @booking.amount_cents %>"
+        data-currency="EUR">
+      </script>
+    </span>
+    <% end %>
+     </div>
+</div>
+  </div>
+</div>

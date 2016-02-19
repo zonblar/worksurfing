@@ -6,7 +6,12 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
+
+
      @availability = Availability.new(availability_params)
+     @availability.end_date = availability_params[:end_date]
+
+
      @workspace = Workspace.find(params[:workspace_id])
      @availability.workspace_id = @workspace.id
      if @availability.save

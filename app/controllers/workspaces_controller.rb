@@ -27,6 +27,7 @@ class WorkspacesController < ApplicationController
 
     @workspaces = @workspaces.where.not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
+    @workspaces = Workspace.all
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
       marker.lat workspace.latitude
       marker.lng workspace.longitude
@@ -83,7 +84,7 @@ class WorkspacesController < ApplicationController
   private
 
   def workspace_params
-    params.require(:workspace).permit(:photo1, :photo_cache1, :title, :city, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space, photos: [])
+    params.require(:workspace).permit(:seats, :photo1, :photo_cache1, :title, :city, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space, photos: [])
 
   end
 end

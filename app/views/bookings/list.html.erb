@@ -4,50 +4,52 @@
 
   <h2 class="text-center"><strong>Mes réservations</strong></h2>
   <% @bookings.each do |booking| %>
+    <div class="row">
 
-    <!-- left column -->
-    <div class="col-xs-12 col-md-4">
-      <%= link_to workspace_path(booking) do %>
-        <h2> <%= booking.workspace.title %></h2>
-        <%= cl_image_tag booking.workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
+      <!-- left column -->
+      <div class="col-xs-12 col-md-4">
+        <%= link_to workspace_path(booking) do %>
+          <h2> <%= booking.workspace.title %></h2>
+          <%= cl_image_tag booking.workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
+        <% end %>
 
-    </div>
+      </div>
 
-    <!-- right column -->
-    <div class="col-xs-12 col-md-8">
-      <h3>Détails</h3>
+      <!-- right column -->
+      <div class="col-xs-12 col-md-8">
+        <h3>Détails</h3>
 
-        <div class="parent-flex" id="parent-flex-list">
+          <div class="parent-flex" id="parent-flex-list">
 
-          <!-- Requester profil -->
-          <div class="owner-details text-center">
-            <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
-              <% if booking.user.picture? %>
-                <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
-               <% end %>
-              <p><%= booking.user.first_name %></p>
-          <% end %>
+            <!-- Owner profil -->
+            <div class="owner-details text-center">
+              <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+                <% if booking.user.picture? %>
+                  <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+                 <% end %>
+                <p><%= booking.user.first_name %></p>
+            <% end %>
+            </div>
+
+            <!-- Booking details -->
+            <div class="workplace-headlines">
+              <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
+              <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
+              <p><strong>Status: </strong><%= booking.status %></p>
+            </div>
+
+            <!-- Cancel button -->
+
+            <%= link_to booking_path(booking), { class: "btn btn-danger", method: :delete } do %>
+
+            <% end %>
+
           </div>
 
-          <!-- Booking details -->
-          <div class="workplace-headlines">
-            <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
-            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
-            <p><strong>Status: </strong><%= booking.status %></p>
-          </div>
-
-          <!-- Validation or rejection buttons -->
-
-          <%= link_to booking_reject_path(booking), class: "btn btn-danger", style: "margin: 20px;" do %>
-                  <i class="fa fa-trash"></i> Supprimer cette demande
-                  <% end %>
-
-        </div>
-
-        <hr>
+          <hr>
+      </div>
     </div>
-
+    <hr>
   <% end %>
 
   <div class="footer_pusher"></div>

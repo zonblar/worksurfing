@@ -11,25 +11,25 @@
             <%= form_tag(workspaces_path, :method => "get", id: "search-form", class: "navbar form-inline") do %>
               <hr>
               <div class="row">
-                <div class="col-xs-1">
+                <div class="col-xs-4">
                   <strong>Ville</strong>
                 </div>
-                <div class="city col-xs-10">
+                <div class="city col-xs-8">
                   <%= text_field_tag :city, 'Paris', :prompt => "Ville", :class => "form-control"%>
                 </div>
               </div>
               <br>
               <hr>
               <div class="row">
-                  <div class='col-xs-1'>
-                    <strong>Dates</strong>
+                  <div class='col-xs-4'>
+                    <strong>Pour combien de personnes ?</strong>
                   </div>
-                  <div class="start_date col-xs-3">
+                  <!-- <div class="start_date col-xs-3">
                     <p><%= date_field_tag :start_date, :class => "form-control"%></p>
                   </div>
                   <div class="end_date col-xs-3">
                     <p><%= date_field_tag :end_date, :class => "form-control" %></p>
-                  </div>
+                  </div> -->
                   <div class="nb_people col-xs-3">
                     <p><%= select_tag :nb_people, options_for_select(1..10), :prompt => "Nombre de personnes", :class => "form-control" %></p>
                   </div>

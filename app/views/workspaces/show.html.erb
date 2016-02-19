@@ -16,7 +16,7 @@
           <div class="owner-details text-center">
             <%= link_to user_path(@workspace.user), {style: "text-decoration: none;"} do %>
               <% if @workspace.user.picture? %>
-                <%= cl_image_tag @workspace.user.picture.path, class:"avatar-super-large"%>
+                <%= cl_image_tag @workspace.user.picture.path, class: "avatar-super-large"%>
                <% end %>
               <p><%= @workspace.user.first_name %></p>
           <% end %>

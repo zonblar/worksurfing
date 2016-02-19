@@ -35,10 +35,23 @@
         <% end %>
       </div>
 
-      <!-- right column -->
-      <div class="col-xs-12 col-md-8">
-        <h3>Demandes de réservations</h3>
-        <% workspace.bookings.each do |booking| %>
+    <!-- right column -->
+    <div class="col-xs-12 col-md-8">
+      <h3>Demandes de réservations</h3>
+    <% if workspace.bookings.count > 1 %>
+      <% workspace.bookings.each do |booking| %>
+
+        <div class="parent-flex" id="parent-flex-list">
+
+          <!-- Requester profil -->
+          <div class="owner-details text-center">
+            <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+              <% if booking.user.picture? %>
+                <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+               <% end %>
+              <p><%= booking.user.first_name %></p>
+          <% end %>
+          </div>
 
           <div class="parent-flex" id="parent-flex-list">
 

@@ -1,20 +1,17 @@
 <% content_for :title, "Worksurfing - messages" %>
 
 <div class="container">
+<div class="pusher"> </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-3 col-sm-offset-3">
-     Send a message to
-      <%= @user.first_name %>
+    <div class=" col-xs-12 col-sm-8 col-sm-offset-2">
+      <h2 class="text-center">Send a message to <%= @user.first_name %></h2>
       <%= form_tag({controller: "messages", action: "create"}, method: :post) do %>
-      <%= text_field_tag :subject, "", class: 'form-control' %>
-      <%= text_area_tag :body, "", class: 'form-control' %>
+      <%= text_field_tag :subject, "", class: 'form-control', style:"margin-bottom: 30px; margin-top: 20px;" , id:"for1" %>
+      <%= text_area_tag :body, "", class: 'form-control', style:"margin-bottom: 30px; height:300px; width:100%;", id:"for2" %>
       <%= hidden_field_tag(:user, "#{@user.id}") %>
-      <%= submit_tag 'Send message', class: "btn btn-primary" %>
+      <%= submit_tag 'Send message', class: "btn btn-primary", style: "width: 100%" %>
       <% end %>
     </div>
-  </div>
+    </div>
   <div class="footer_pusher"></div>
 </div>
-
-
-

@@ -21,6 +21,15 @@
 @import "lightbox/lightbox.scss";
 @import 'image-select';
 
+#for1 {
+  padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.message-form {
+ display: flex;
+  flex-direction: column;
+}
 .pusher{
   height:200px;
 }

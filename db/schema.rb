@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20160219090310) do
     t.datetime "updated_at",                null: false
     t.string   "workspace_sku"
     t.json     "payment"
-    t.string   "status"
+    t.string   "status",  default: "pending", null: false
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree

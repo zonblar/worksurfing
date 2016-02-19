@@ -15,3 +15,4 @@
 //= require jquery.image-select
 //= require messages
 //= require_tree .
+

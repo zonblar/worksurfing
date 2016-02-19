@@ -4,12 +4,12 @@
 
   <div class="container user-container">
     <row>
-      <div class="col-md-8 space-sm-4">
-          <div class="sidenav">
 
-          </div>
+      <div class="col-xl-12 col-sm-4">
+        <%= cl_image_tag current_user.picture.path, class:"avatar-square"%>
+      </div>
 
-      <div class="col-sm-8 col-md-6 form-container" style="background: white; border: 1px solid #CACCCD;">
+      <div class="col-xl-12 col-sm-offset-1 col-sm-7 form-container" style="background: white; border: 1px solid #CACCCD;">
 
         <h1>Mon Profil</h1>
 
@@ -35,10 +35,9 @@
           </div>
 
        </div>
+    </row>
 
        <div class="footer_pusher"></div>
 
-      </div>
-    </row>
   </div>
 </div>

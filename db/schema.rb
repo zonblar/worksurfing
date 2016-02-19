@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20160219090310) do
     t.integer  "workspace_id"
     t.integer  "user_id"
     t.string   "state"
-    t.integer  "amount_cents",  default: 0, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "amount_cents",  default: 0,         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "workspace_sku"
     t.json     "payment"
-    t.string   "status"
+    t.string   "status",        default: "pending"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree

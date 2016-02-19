@@ -23,9 +23,40 @@
 
     <!-- right column -->
     <div class="col-xs-12 col-md-8">
-      <h3>Bookings</h3>
+      <h3>Demandes de réservations</h3>
       <% workspace.bookings.each do |booking| %>
-        <p>From <%= booking.start_date%> until <%= booking.end_date%></p>
+
+        <div class="parent-flex" id="parent-flex-list">
+
+          <!-- Requester profil -->
+          <div class="owner-details text-center">
+            <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+              <% if booking.user.picture? %>
+                <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+               <% end %>
+              <p><%= booking.user.first_name %></p>
+          <% end %>
+          </div>
+
+          <!-- Booking details -->
+          <div class="workplace-headlines">
+            <p><strong>Du: </strong><%= booking.start_date %></p>
+            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.to_datetime.strftime(%d %m %y) %></p>
+            <p><strong>Status: </strong><%= booking.status %></p>
+          </div>
+
+          <!-- Validation or rejection buttons -->
+          <%= link_to booking_validate_path(booking), class: "btn btn-success", style: "margin: 20px;" do %>
+                  <i class="fa fa-check"></i> Accepter
+                  <% end %>
+
+          <%= link_to booking_reject_path(booking), class: "btn btn-danger", style: "margin: 20px;" do %>
+                  <i class="fa fa-trash"></i> Rejeter
+                  <% end %>
+
+        </div>
+
+        <hr>
       <% end %>
     </div>
 

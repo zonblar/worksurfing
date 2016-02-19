@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:validate, :reject]
+
   def new
     @booking = Booking.new
   end
@@ -29,6 +31,23 @@ class BookingsController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  def validate
+    @booking = Booking.find(params[:booking_id])
+    @booking.update_attribute(:status, "validated")
+    redirect_to :back
+  end
+
+  def reject
+    @booking = Booking.find(params[:booking_id])
+    @booking.update_attribute(:status, "rejected")
+    redirect_to :back
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to work_path
+  end
 
 
   private

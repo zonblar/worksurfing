@@ -6,10 +6,12 @@
     <row>
 
       <div class="col-xl-12 col-sm-4">
-        <%= cl_image_tag current_user.picture.path, class:"avatar-square"%>
+        <%if current_user.picture != nil %>
+          <%= cl_image_tag current_user.picture.path, class:"avatar-square"%>
+         <% end %>
       </div>
 
-      <div class="col-xl-12 col-sm-offset-1 col-sm-7 form-container" style="background: white; border: 1px solid #CACCCD;">
+      <div class="col-xl-12 col-xs-offset-2 col-xs-8 form-container" style="background: white; border: 1px solid #CACCCD;">
 
         <h1>Mon Profil</h1>
 

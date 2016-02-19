@@ -40,7 +40,7 @@
             <h3>Détails</h3>
             <ul class="list-unstyled">
               <li>
-                <%=@workspace.seats%> places
+                <%=@workspace.nb_people%> places
               </li>
               <li>
                 <% if @workspace.bathroom? %>
@@ -92,13 +92,15 @@
             <% end %>
           </ul>
 
+         <% bookers = [] %>
           <% @workspace.bookings.each do |booking|  %>
-            <% if booking.user == current_user %>
-              <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
-            <% end %>
+            <% bookers << booking.user %>
           <% end %>
-        </div>
+          <% if bookers.include? current_user %>
+            <%= link_to 'Rajouter un commentaire', new_workspace_review_path(@workspace), class: "btn btn-large btn-primary" %>
+          <% end %>
       </div>
+    </div>
 
 
       <div class="col-md-4">
@@ -112,22 +114,20 @@
       <div class="booking-module">
         <h3>Réserver cet espace</h3>
           <%= simple_form_for [@workspace, Booking.new] do |f| %>
-              <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
-              <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
-              <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
+              <%= f.input :start_date, as: :string, input_html: { :class => "datepicker datepicker_begin" }, required: false %>
+              <%= f.input :end_date, as: :string, input_html: { :class => "datepicker datepicker_end" }, required: false %>
+              <%= f.button :submit , "Demande de réservation", :class => "text-center btn btn-primary btn-block" %>
           <% end %>
       </div>
 
       <!-- Send a private message to the owner -->
-      <div class="private-message text-center">
-        <% unless current_user == @workspace.user %>
-          <i class="fa fa-envelope-o fa-2x"></i>
-          <%= link_to "Contact the owner", new_message_path(:user => @workspace.user.id), class: "btn btn-large btn-primary"%>
-         <% end %>
+        <div class="private-message text-center">
+          <% unless current_user == @workspace.user %>
+            <i class="fa fa-envelope-o fa-2x"></i>
+            <%= link_to "Contact the owner", new_message_path(:user => @workspace.user.id), class: "btn btn-large btn-primary"%>
+           <% end %>
+        </div>
       </div>
-
-      </div>
-
     </div>
   </div>
 </div>

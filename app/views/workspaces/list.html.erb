@@ -1,30 +1,71 @@
 <% content_for :title, "Worksurfing - List your workspace" %>
 <%= render 'shared/sub_navbar' %>
-<div class="container">
-  <h2 class="text-center">Mes workspaces</h2>
-  <% @workspaces.each do |workspace| %>
-    <div class="col-md-offset-3 col-md-4">
-    <%= link_to workspace_path(workspace)  do %>
-         <h2> <%= workspace.title %></h2>
-        <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
-          <% end %>
 
-       <span><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
-        Update
-          <% end %>
-       <%= link_to "Delete", workspace_path(workspace), :confirm => "Are you sure?", :method => :delete %></span>
+<div class="container">
+
+  <h2 class="text-center"><strong>Mes espaces de travail</strong></h2>
+  <% @workspaces.each do |workspace| %>
+
+    <!-- left column -->
+    <div class="col-xs-12 col-md-4">
+      <%= link_to workspace_path(workspace)  do %>
+        <h2> <%= workspace.title %></h2>
+        <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+
+      <div style="padding:20px;">
+      <%= link_to edit_workspace_path , :class =>"btn btn-primary" do %>
+          Actualiser
+      <% end %>
+      <%= link_to "Supprimer", workspace_path(workspace), :class =>"btn btn-primary", :confirm => "Are you sure?", :method => :delete %>
       </div>
-    <div class="col-md-4">
-      <h3>Bookings</h3>
-      <% workspace.bookings.each do |booking| %>
-        <p>From <%= booking.start_date%> until <%= booking.end_date%></p>
-      <%end%>
     </div>
+
+    <!-- right column -->
+    <div class="col-xs-12 col-md-8">
+      <h3>Demandes de réservations</h3>
+      <% workspace.bookings.each do |booking| %>
+
+        <div class="parent-flex" id="parent-flex-list">
+
+          <!-- Requester profil -->
+          <div class="owner-details text-center">
+            <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+              <% if booking.user.picture? %>
+                <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+               <% end %>
+              <p><%= booking.user.first_name %></p>
+          <% end %>
+          </div>
+
+          <!-- Booking details -->
+          <div class="workplace-headlines">
+            <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
+            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
+            <p><strong>Status: </strong><%= booking.status %></p>
+          </div>
+
+          <!-- Validation or rejection buttons -->
+          <%= link_to booking_validate_path(booking), class: "btn btn-success", style: "margin: 20px;" do %>
+                  <i class="fa fa-check"></i> Accepter
+                  <% end %>
+
+          <%= link_to booking_reject_path(booking), class: "btn btn-danger", style: "margin: 20px;" do %>
+                  <i class="fa fa-trash"></i> Rejeter
+                  <% end %>
+
+        </div>
+
+        <hr>
+      <% end %>
+    </div>
+
   <% end %>
+
 </div>
 
 <div class="text-center" style="padding-bottom:50px">
 <%= link_to new_workspace_path , :class =>"btn btn-primary text-center" do %>
-        Add a workspace
+        Rajouter de nouveaux espaces de travail
           <% end %>
 </div>

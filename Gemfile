@@ -28,6 +28,7 @@ gem 'mailboxer'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem 'bootstrap-datepicker-rails', '~> 1.3', '>= 1.3.1.1'
+gem "koala", "~> 2.2"
 
 gem 'bootstrap-slider-rails'
 gem "scoped_search"

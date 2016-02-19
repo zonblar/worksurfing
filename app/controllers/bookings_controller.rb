@@ -14,8 +14,8 @@ class BookingsController < ApplicationController
     @booking.workspace = @workspace
     @booking.state = 'pending'
     @booking.save
-    # if @workspace.available?(@booking)
-    if  @booking.save
+    if @workspace.available?(@booking)
+
       redirect_to new_workspace_booking_payment_path(@workspace, @booking)
     else
       redirect_to workspace_path(@workspace)

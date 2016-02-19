@@ -109,8 +109,8 @@
       <div class="booking-module">
         <h3>Réserver cet espace</h3>
           <%= simple_form_for [@workspace, Booking.new] do |f| %>
-              <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
-              <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+              <%= f.input :start_date, as: :string, input_html: { :class => "datepicker datepicker_begin" }, required: false %>
+              <%= f.input :end_date, as: :string, input_html: { :class => "datepicker datepicker_end" }, required: false %>
               <%= f.button :submit , :class => "text-center btn btn-primary btn-block" %>
           <% end %>
       </div>

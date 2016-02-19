@@ -24,6 +24,7 @@
     <!-- right column -->
     <div class="col-xs-12 col-md-8">
       <h3>Demandes de réservations</h3>
+    <% if workspace.bookings.count > 0 %>
       <% workspace.bookings.each do |booking| %>
 
         <div class="parent-flex" id="parent-flex-list">
@@ -57,6 +58,7 @@
         </div>
 
         <hr>
+        <% end %>
       <% end %>
     </div>
 

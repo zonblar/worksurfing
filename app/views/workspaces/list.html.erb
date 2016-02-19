@@ -14,26 +14,31 @@
           <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
         <% end %>
 
+
         <div style="padding:20px;">
+
         <%= link_to edit_workspace_path , :class =>"btn btn-primary" do %>
             Actualiser
         <% end %>
         <%= link_to "Supprimer", workspace_path(workspace), :class =>"btn btn-primary", :confirm => "Are you sure?", :method => :delete %>
+
         </div>
+
+        <% if workspace.listed %>
+          <%= link_to workspace_listed_path(workspace), class: "btn btn-success", style: "margin: 20px;" do %>
+                    Délister
+          <% end %>
+        <% else %>
+          <%= link_to workspace_unlisted_path(workspace), class: "btn btn-success", style: "margin: 20px;" do %>
+                    Lister
+          <% end %>
+        <% end %>
       </div>
 
-<<<<<<< HEAD
       <!-- right column -->
       <div class="col-xs-12 col-md-8">
         <h3>Demandes de réservations</h3>
         <% workspace.bookings.each do |booking| %>
-=======
-    <!-- right column -->
-    <div class="col-xs-12 col-md-8">
-      <h3>Demandes de réservations</h3>
-    <% if workspace.bookings.count > 0 %>
-      <% workspace.bookings.each do |booking| %>
->>>>>>> master
 
           <div class="parent-flex" id="parent-flex-list">
 
@@ -65,15 +70,10 @@
 
           </div>
 
-<<<<<<< HEAD
+
           <hr>
         <% end %>
       </div>
-=======
-        <hr>
-        <% end %>
-      <% end %>
->>>>>>> master
     </div>
     <hr>
   <% end %>

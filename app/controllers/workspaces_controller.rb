@@ -21,6 +21,7 @@ class WorkspacesController < ApplicationController
     end
 
     if  Workspace.search_for(search_query).count >= 0
+      search_query << "(WHERE listed = true)"
       @workspaces = Workspace.search_for(search_query)
     else
       @workspaces = Workspace.all

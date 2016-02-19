@@ -4,7 +4,7 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    params_hash = { city: params[:city].downcase,
+    params_hash = { city: params[:city],
                     nb_people: params[:nb_people],
                     printer: params[:printer],
                     bathroom: params[:bathroom],
@@ -20,7 +20,11 @@ class WorkspacesController < ApplicationController
       search_query << " AND (#{key.to_s} = #{params_hash[key]}) " unless params_hash[key] = "" || params_hash[key] = nil
     end
 
-    @workspaces = Workspace.search_for(search_query)
+    if  Workspace.search_for(search_query).count >= 0
+      @workspaces = Workspace.search_for(search_query)
+    else
+      @workspaces = Workspace.all
+    end
 
     # AND (start_date <= #{params[:start_date]} AND end_date => #{params[:end_date]})
     # add attributes to Workspace

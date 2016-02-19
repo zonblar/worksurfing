@@ -13,16 +13,16 @@ class Workspace < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
 
-  def available?(booking)
-   output = true
-   self.availabilities.each do |availability|
+  # def available?(booking)
+  #  output = true
+  #  self.availabilities.each do |availability|
 
-      if (booking.end_date <= availability.start_date || booking.end_date >= availability.end_date || booking.start_date < availability.start_date)
-        output = false
-      end
-    end
-    output
-  end
+  #     if (booking.end_date <= availability.start_date || booking.end_date >= availability.end_date || booking.start_date < availability.start_date)
+  #       output = false
+  #     end
+  #   end
+  #   output
+  # end
 
   has_attachments :photos, maximum: 10
 end

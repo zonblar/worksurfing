@@ -75,7 +75,7 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new(workspace_params)
     @workspace.user = current_user
     if @workspace.save
-      redirect_to new_workspace_availability_path(@workspace)
+      redirect_to workspace_path(@workspace)
     else
       render :new
     end

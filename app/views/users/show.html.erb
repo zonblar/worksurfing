@@ -22,6 +22,10 @@
             <%= @user.last_name %>
           </p>
           <p>
+            <strong>Sexe:</strong>
+            <%= @user.gender %>
+          </p>
+          <p>
             <strong>Description:</strong>
             <%= @user.description %>
           </p>
@@ -29,7 +33,10 @@
             <strong>Profession:</strong>
             <%= @user.job %>
           </p>
-
+          <p>
+            <strong>Porfolio:</strong>
+            <%= @user.portfolio %>
+          </p>
           <div class="form-actions">
             <%= link_to("Modifier mon profil", edit_user_path(@user)) %>
           </div>

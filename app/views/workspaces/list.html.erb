@@ -1,30 +1,40 @@
 
 <%= render 'shared/sub_navbar' %>
-<div class="container">
-  <h2 class="text-center">Mes workspaces</h2>
-  <% @workspaces.each do |workspace| %>
-    <div class="col-md-offset-3 col-md-4">
-    <%= link_to workspace_path(workspace)  do %>
-         <h2> <%= workspace.title %></h2>
-        <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
-          <% end %>
 
-       <span><%= link_to edit_workspace_path , :class =>"btn btn-alert" do %>
-        Update
-          <% end %>
-       <%= link_to "Delete", workspace_path(workspace), :confirm => "Are you sure?", :method => :delete %></span>
+<div class="container">
+
+  <h2 class="text-center"><strong>Mes espaces de travail</strong></h2>
+  <% @workspaces.each do |workspace| %>
+
+    <!-- left column -->
+    <div class="col-xs-12 col-md-4">
+      <%= link_to workspace_path(workspace)  do %>
+        <h2> <%= workspace.title %></h2>
+        <%= cl_image_tag workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+
+      <div style="padding:20px;">
+      <%= link_to edit_workspace_path , :class =>"btn btn-primary" do %>
+          Actualiser
+      <% end %>
+      <%= link_to "Supprimer", workspace_path(workspace), :class =>"btn btn-primary", :confirm => "Are you sure?", :method => :delete %>
       </div>
-    <div class="col-md-4">
+    </div>
+
+    <!-- right column -->
+    <div class="col-xs-12 col-md-8">
       <h3>Bookings</h3>
       <% workspace.bookings.each do |booking| %>
         <p>From <%= booking.start_date%> until <%= booking.end_date%></p>
-      <%end%>
+      <% end %>
     </div>
+
   <% end %>
+
 </div>
 
 <div class="text-center" style="padding-bottom:50px">
 <%= link_to new_workspace_path , :class =>"btn btn-primary text-center" do %>
-        Add a workspace
+        Rajouter de nouveaux espaces de travail
           <% end %>
 </div>

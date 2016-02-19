@@ -1,14 +1,55 @@
 <% content_for :title, "Worksurfing - your bookings" %>
 <%= render 'shared/sub_navbar' %>
 <div class="container">
-  <h2 class="text-center">Mes réservations</h2>
-    <div class="col-md-offset-3 col-md-4">
 
-        <% @bookings.each do |booking| %>
+  <h2 class="text-center"><strong>Mes réservations</strong></h2>
+  <% @bookings.each do |booking| %>
 
-      <h2><%= booking.start_date %></h2>
+    <!-- left column -->
+    <div class="col-xs-12 col-md-4">
+      <%= link_to workspace_path(booking) do %>
+        <h2> <%= booking.workspace.title %></h2>
+        <%= cl_image_tag booking.workspace.photos.first.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+
+    </div>
+
+    <!-- right column -->
+    <div class="col-xs-12 col-md-8">
+      <h3>Détails</h3>
+
+        <div class="parent-flex" id="parent-flex-list">
+
+          <!-- Requester profil -->
+          <div class="owner-details text-center">
+            <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+              <% if booking.user.picture? %>
+                <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+               <% end %>
+              <p><%= booking.user.first_name %></p>
           <% end %>
-      </div>
-      <div class="footer_pusher"></div>
+          </div>
+
+          <!-- Booking details -->
+          <div class="workplace-headlines">
+            <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
+            <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
+            <p><strong>Status: </strong><%= booking.status %></p>
+          </div>
+
+          <!-- Validation or rejection buttons -->
+
+          <%= link_to booking_reject_path(booking), class: "btn btn-danger", style: "margin: 20px;" do %>
+                  <i class="fa fa-trash"></i> Supprimer cette demande
+                  <% end %>
+
+        </div>
+
+        <hr>
+    </div>
+
+  <% end %>
+
+  <div class="footer_pusher"></div>
 </div>
 

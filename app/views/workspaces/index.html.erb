@@ -15,7 +15,7 @@
                   <strong>Ville</strong>
                 </div>
                 <div class="city col-xs-8">
-                  <%= text_field_tag :city, 'Paris', :prompt => "Ville", :class => "form-control"%>
+                  <%= text_field_tag :city, @city, :prompt => "Ville", :class => "form-control"%>
                 </div>
               </div>
               <br>
@@ -41,7 +41,7 @@
                   <strong>Prix moyen</strong>
                 </div>
                 <div class="price-range col-xs-8">
-                  <p><%= number_field_tag :price_per_day, nil, :class => "slider slider-horizontal"%></p>
+                  <p><%= number_field_tag :price_per_day, @price_per_day, :class => "slider slider-horizontal"%></p>
                 </div>
               </div>
               <br>
@@ -51,13 +51,13 @@
                   <strong>Equipements</strong>
                 </div>
                 <div class="equipements col-xs-3">
-                  <p>Imprimante <%= check_box_tag :printer, 'printer', false %></p>
+                  <p>Imprimante <%= check_box_tag :printer, @printer, false %></p>
                 </div>
                 <div class="equipements col-xs-3">
-                  <p>Salle de bain <%= check_box_tag :bathroom, 'bathroom', false %></p>
+                  <p>Salle de bain <%= check_box_tag :bathroom, @bathroom, false %></p>
                 </div>
                 <div class="equipements col-xs-3">
-                  <p>Wifi <%= check_box_tag :wifi, 'wifi', false %></p>
+                  <p>Wifi <%= check_box_tag :wifi, @wifi, false %></p>
                 </div>
               </div>
               <br>

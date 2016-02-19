@@ -4,40 +4,39 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    params_hash = { city: params[:city],
-                    nb_people: params[:nb_people],
-                    printer: params[:printer],
-                    bathroom: params[:bathroom],
-                    wifi: params[:wifi] }
+    @city = params[:city]
+    @price_per_day = params[:price_per_day]
+    @printer = params[:printer]
+    @bathroom = params[:bathroom]
+    @wifi = params[:wifi]
 
-    search_query = ""
-    if  params[:price_per_day].to_i != 0
-      search_query << "(price_per_day BETWEEN (#{params[:price_per_day].to_i - (params[:price_per_day].to_i/10)})
-                                      AND (#{params[:price_per_day].to_i + (params[:price_per_day].to_i/10)}))"
-    end
+    search_query = "price_per_day <= #{@price_per_day.to_i}"
 
-    params_hash.each do |key, value|
-      search_query << " AND (#{key.to_s} = #{params_hash[key]}) " unless params_hash[key] = "" || params_hash[key] = nil
-    end
+    search_params.each do |key, value|
+      search_query += " AND (#{key.to_s} = #{value}) " unless value.blank?
+      end
 
-    if  Workspace.search_for(search_query).count >= 0
-      # search_query << "( WHERE listed = 'true')"
+    if  Workspace.search_for(search_query).count > 0
       @workspaces = Workspace.search_for(search_query).where("listed = true")
-      raise
     else
       @workspaces = Workspace.all
     end
+
+
+
 
     # AND (start_date <= #{params[:start_date]} AND end_date => #{params[:end_date]})
     # add attributes to Workspace
 
     @workspaces = @workspaces.where.not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
-    @workspaces = Workspace.all
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|
       marker.lat workspace.latitude
       marker.lng workspace.longitude
+
+
     end
+
   end
 
   def list
@@ -103,6 +102,9 @@ class WorkspacesController < ApplicationController
 
   def workspace_params
     params.require(:workspace).permit(:nb_people, :photo1, :photo_cache1, :title, :city, :zipcode, :description, :address, :wifi, :bathroom, :rules, :printer, :price_per_day, :price_per_week, :type_of_space, photos: [])
+  end
 
+  def search_params
+    params.permit(:city, :nb_people, :printer, :bathroom, :wifi)
   end
 end

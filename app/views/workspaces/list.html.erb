@@ -22,10 +22,18 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <!-- right column -->
       <div class="col-xs-12 col-md-8">
         <h3>Demandes de réservations</h3>
         <% workspace.bookings.each do |booking| %>
+=======
+    <!-- right column -->
+    <div class="col-xs-12 col-md-8">
+      <h3>Demandes de réservations</h3>
+    <% if workspace.bookings.count > 0 %>
+      <% workspace.bookings.each do |booking| %>
+>>>>>>> master
 
           <div class="parent-flex" id="parent-flex-list">
 
@@ -57,9 +65,15 @@
 
           </div>
 
+<<<<<<< HEAD
           <hr>
         <% end %>
       </div>
+=======
+        <hr>
+        <% end %>
+      <% end %>
+>>>>>>> master
     </div>
     <hr>
   <% end %>

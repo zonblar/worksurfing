@@ -4,11 +4,28 @@ class WorkspacesController < ApplicationController
   # before_filter :disable_nav
 
   def index
-    @result = params[:city]
-    # @nb_people = params[:nb_people]
-    @workspaces = Workspace.where(city: @result)
-    # , nb_people: @nb_people)
-    # not(latitude: nil)
+    params_hash = { city: params[:city].downcase,
+                    nb_people: params[:nb_people],
+                    printer: params[:printer],
+                    bathroom: params[:bathroom],
+                    wifi: params[:wifi] }
+
+    search_query = ""
+    if  params[:price_per_day].to_i != 0
+      search_query << "(price_per_day BETWEEN (#{params[:price_per_day].to_i - (params[:price_per_day].to_i/10)})
+                                      AND (#{params[:price_per_day].to_i + (params[:price_per_day].to_i/10)}))"
+    end
+
+    params_hash.each do |key, value|
+      search_query << " AND (#{key.to_s} = #{params_hash[key]}) " unless params_hash[key] = "" || params_hash[key] = nil
+    end
+
+    @workspaces = Workspace.search_for(search_query)
+
+    # AND (start_date <= #{params[:start_date]} AND end_date => #{params[:end_date]})
+    # add attributes to Workspace
+
+    @workspaces = @workspaces.where.not(latitude: nil)
     # Let's DYNAMICALLY build the markers for the view.
     @workspaces = Workspace.all
     @markers = Gmaps4rails.build_markers(@workspaces) do |workspace, marker|

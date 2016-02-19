@@ -49,6 +49,18 @@ class WorkspacesController < ApplicationController
 
   end
 
+  def listed
+    @workspace = Workspace.find(params[:workspace_id])
+    @workspace.update_attribute(:listed, false)
+    redirect_to :back
+  end
+
+  def unlisted
+    @workspace = Workspace.find(params[:workspace_id])
+    @workspace.update_attribute(:listed, true)
+    redirect_to :back
+  end
+
   def edit
    @workspace = Workspace.find(params[:id])
   end

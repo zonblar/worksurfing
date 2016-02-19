@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219090310) do
+ActiveRecord::Schema.define(version: 20160219114057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20160219090310) do
     t.integer  "workspace_id"
     t.integer  "user_id"
     t.string   "state"
-    t.integer  "amount_cents",  default: 0,         null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "amount_cents",  default: 0, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "workspace_sku"
     t.json     "payment"
-    t.string   "status",        default: "pending"
+    t.string   "status"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -165,16 +165,17 @@ ActiveRecord::Schema.define(version: 20160219090310) do
     t.integer  "price_per_week"
     t.string   "type_of_space"
     t.integer  "user_id"
-    t.integer  "price_cents",    default: 0, null: false
+    t.integer  "price_cents",    default: 0,    null: false
     t.string   "sku"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "title"
     t.string   "photo1"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "nb_people"
     t.integer  "seats"
+    t.boolean  "listed",         default: true
   end
 
   add_foreign_key "availabilities", "workspaces"

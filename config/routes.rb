@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :workspaces do
+      get 'unlisted'
+      get 'listed'
       resources :bookings, only: [:index, :create] do
         resources :payments, only: [:new, :create]
       end

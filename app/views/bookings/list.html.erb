@@ -1,14 +1,53 @@
 <% content_for :title, "Worksurfing - your bookings" %>
 <%= render 'shared/sub_navbar' %>
 <div class="container">
-  <h2 class="text-center">Mes réservations</h2>
-    <div class="col-md-offset-3 col-md-4">
 
-        <% @bookings.each do |booking| %>
+  <h2 class="text-center"><strong>Mes réservations</strong></h2>
+  <% @bookings.each do |booking| %>
+    <div class="row">
 
-      <h2><%= booking.start_date %></h2>
-          <% end %>
+      <!-- left column -->
+      <div class="col-xs-12 col-md-4">
+        <%= render "shared/card", workspace: booking.workspace %>
       </div>
-      <div class="footer_pusher"></div>
+
+      <!-- right column -->
+      <div class="col-xs-12 col-md-8">
+        <h3>Détails</h3>
+
+          <div class="parent-flex" id="parent-flex-list">
+
+            <!-- Owner profil -->
+            <div class="owner-details text-center">
+              <%= link_to user_path(booking.user), {style: "text-decoration: none;"} do %>
+                <% if booking.user.picture? %>
+                  <%= cl_image_tag booking.user.picture.path, class:"avatar-super-large"%>
+                 <% end %>
+                <p><%= booking.user.first_name %></p>
+            <% end %>
+            </div>
+
+            <!-- Booking details -->
+            <div class="workplace-headlines">
+              <p><strong>Du: </strong><%= booking.start_date.strftime("%d %m %y") %></p>
+              <p style="margin-bottom: 10px"><strong>Au: </strong><%= booking.end_date.strftime("%d %m %y") %></p>
+              <p><strong>Status: </strong><%= booking.status %></p>
+            </div>
+
+            <!-- Cancel button -->
+
+            <%= link_to booking_path(booking), { class: "btn btn-danger", method: :delete } do %>
+              <i class="fa fa-trash"></i> Supprimer cette demande
+            <% end %>
+
+          </div>
+
+          <hr>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+
+  <div class="footer_pusher"></div>
 </div>
 
